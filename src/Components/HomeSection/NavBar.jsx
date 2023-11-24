@@ -15,13 +15,13 @@ export default function NavBar() {
             <a href="#home">Home</a>
           </li>
           <li>
-            <a href="#beneficios">Beneficios</a>
+            <a href="#description">Beneficios</a>
           </li>
           <li>
-            <a href="#precios">Precios</a>
+            <a href="#pricing">Precios</a>
           </li>
           <li>
-            <a href="#testimonios">Testimonios</a>
+            <a href="#testimonials">Testimonios</a>
           </li>
           <li>
             <button>
