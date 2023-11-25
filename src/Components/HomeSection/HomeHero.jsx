@@ -13,11 +13,12 @@ export const HomeHero = () => {
           ley de todas los ingresos o deducciones del personal y la ejecución de
           su pago.
         </p>
-        <button>Solicitar Sistema</button>
+        <div className="button">
+          <a href="">Solicitar Sistema</a>
+        </div>
       </div>
       <div className="hero-images">
         <img src={laptopImg} className="image first" />
-        <img src={nominaImg} className="image second" />
       </div>
     </div>
   );

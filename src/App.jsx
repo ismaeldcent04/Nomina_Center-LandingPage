@@ -13,11 +13,11 @@ function App() {
         {/* HOME SECTION */}
         <HomeSection />
         {/* DESCRIPTION SECTION  */}
-        <DescriptionSection />
+        {/* <DescriptionSection /> */}
         {/* PRICING SECTION  */}
-        <PricingSection />
+        {/* <PricingSection /> */}
         {/* TESTIMONIALS SECTION */}
-        <TestimonialSection />
+        {/* <TestimonialSection /> */}
       </main>
       <Footer />
     </>

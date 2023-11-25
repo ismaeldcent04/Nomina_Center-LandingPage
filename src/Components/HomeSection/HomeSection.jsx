@@ -2,15 +2,13 @@ import React from "react";
 import NavBar from "./NavBar";
 import { HomeHero } from "./HomeHero";
 import { HomeDescription } from "./HomeDescription";
+import backgroundImg from "../../assets/Top-Background.png";
 
 export const HomeSection = () => {
   return (
     <section id="home">
       <NavBar />
-      <div className="background-container">
-        <div className="background Left"></div>
-        <div className="background right"></div>
-      </div>
+      <img src={backgroundImg} className="background-container" />
       <HomeHero />
       <HomeDescription />
     </section>

@@ -24,9 +24,9 @@ export default function NavBar() {
             <a href="#testimonials">Testimonios</a>
           </li>
           <li>
-            <button>
+            <div className="button">
               <a href="">Acceso clientes</a>
-            </button>
+            </div>
           </li>
         </ul>
       </nav>

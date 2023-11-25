@@ -1,11 +1,15 @@
+:root {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   width: 100vw;
-  overflow-x: hidden;
 }
 
 #home {
   width: 100vw;
+  overflow: hidden;
 }
 
 #home,
@@ -23,12 +27,13 @@ li {
 }
 
 #navbar {
-  transform: none;
+  position: fixed;
   display: flex;
+  justify-content: space-between;
   width: 100%;
-  gap: 30%;
+  /* gap: 30%;
+  margin-right: 2%; */
   background-color: transparent;
-  z-index: 1;
 }
 
 .logo {
@@ -43,41 +48,54 @@ h1 span {
 }
 
 .nav {
-  width: 100%;
+  margin-right: 25%;
+}
+
+.nav a,
+.hero-container a {
+  font-size: 1rem;
 }
 
 .nav ul {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  margin-right: 13rem;
-  gap: 3rem;
+
+  gap: 20%;
 }
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button,
 button,
 li button {
   background-color: #2768e5;
   color: white;
   border: none;
   border-radius: 6px;
-  height: 39px;
-  width: 151px;
+  height: 3.5vh;
+  width: 8vw;
 }
 
 #applogo {
-  width: 50px;
-  height: 50px;
+  width: max(50px, 3vw);
+  height: max(50px, 4vh);
 }
 .background-container {
-  position: absolute;
-  display: flex;
-  gap: 0;
-  top: -150px;
-  height: 60vh;
-  width: 100vw;
-  transform: skew(30deg, -8deg);
+  /* position: absolute; */
+  /* display: flex;
+  gap: 0; */
+  /* top: -150px;
+  left: -2%; */
+  height: 55vh;
+  aspect-ratio: 1/34;
+  width: max(100vw, 100vw);
+  /* transform: skew(33deg, -8deg); */
   z-index: -1;
-  background-color: #120d22;
-  border-bottom-left-radius: 30px;
+  /* background-color: #120d22; */
+  /* border-bottom-left-radius: 30px; */
   overflow: hidden;
 }
 .background.Left {
@@ -93,6 +111,8 @@ li button {
 }
 
 .hero-container {
+  position: absolute;
+  top: 11%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -100,16 +120,16 @@ li button {
 }
 .hero-description {
   width: 23%;
-  margin-left: 8%;
+  margin-left: 9%;
 }
 .hero-description h1 {
-  font-size: 3rem;
+  font-size: 2vw;
   margin-bottom: 1rem;
 }
 
 .hero-description p {
-  font-size: large;
-  line-height: 3cap;
+  font-size: 1vw;
+  line-height: 2.5cap;
   margin-bottom: 2%;
 }
 
@@ -117,26 +137,26 @@ li button {
   position: relative;
 }
 .image.first {
-  margin-left: 100px;
+  margin-left: 5%;
+  width: max(100px, 28vw);
 }
-.image.second {
-  position: absolute;
-  left: 10.5rem;
-  top: 0.4rem;
-}
+
 .home_description-container {
   width: 60%;
   color: black;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem 10rem;
-  margin: 7% auto 0 auto;
+  gap: 4rem 10rem;
+  margin: 3% auto 0 auto;
 }
 
 .feature .title {
   display: flex;
   align-items: flex-end;
   gap: 1rem;
+}
+.feature img {
+  width: max(50px, 4vw);
 }
 
 #description {
@@ -334,3 +354,57 @@ li button {
   align-items: center;
   gap: 1rem;
 }
+@media (min-width: 1201px) and (max-width: 1613px) {
+  .nav a,
+  .hero-container a {
+    font-size: 0.8rem;
+  }
+
+  .background-container {
+    height: 50vh;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .nav a,
+  .hero-container a {
+    font-size: 0.6rem;
+  }
+
+  .background-container {
+    height: 45vh;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav a,
+  .hero-container a {
+    font-size: 0.6rem;
+  }
+  .background-container {
+    height: 40vh;
+  }
+  .home_description-container {
+    grid-template-columns: 1fr;
+    gap: 2rem 7rem;
+    text-align: center;
+  }
+  .feature .title {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 481px) {
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+}
+
+/* Mobile devices – 320px — 480px.
+iPads, Tablets – 481px — 768px.
+Small screens, laptops – 769px — 1024px.
+Desktops, large screens – 1025px — 1200px.
+Extra large screens, TV – 1201px, and more. */
