@@ -1,4 +1,5 @@
 import React from "react";
+import checkImg from "../../assets/Checkmark.png";
 
 export const PricingCards = () => {
   return (
@@ -12,10 +13,24 @@ export const PricingCards = () => {
           </h4>
         </div>
         <ul>
-          <li>Access on all devices</li>
-          <li>Access on all devices</li>
-          <li>Access on all devices</li>
-          <li>Access on all devices</li>
+          <li>
+            <img src={checkImg} />
+            Access on all devices
+          </li>
+          <li>
+            {" "}
+            <img src={checkImg} />
+            Access on all devices
+          </li>
+          <li>
+            {" "}
+            <img src={checkImg} />
+            Access on all devices
+          </li>
+          <li>
+            <img src={checkImg} />
+            Access on all devices
+          </li>
         </ul>
         <button>FREE TRIAL</button>
       </div>
@@ -28,10 +43,22 @@ export const PricingCards = () => {
           </h4>
         </div>
         <ul>
-          <li>Access on all devices</li>
-          <li>Access on all devices</li>
-          <li>Access on all devices</li>
-          <li>Access on all devices</li>
+          <li>
+            <img src={checkImg} />
+            Access on all devices
+          </li>
+          <li>
+            <img src={checkImg} />
+            Access on all devices
+          </li>
+          <li>
+            <img src={checkImg} />
+            Access on all devices
+          </li>
+          <li>
+            <img src={checkImg} />
+            Access on all devices
+          </li>
         </ul>
         <button>FREE TRIAL</button>
       </div>
@@ -44,10 +71,22 @@ export const PricingCards = () => {
           </h4>
         </div>
         <ul>
-          <li>Access on all devices</li>
-          <li>Access on all devices</li>
-          <li>Access on all devices</li>
-          <li>Access on all devices</li>
+          <li>
+            <img src={checkImg} />
+            Access on all devices
+          </li>
+          <li>
+            <img src={checkImg} />
+            Access on all devices
+          </li>
+          <li>
+            <img src={checkImg} />
+            Access on all devices
+          </li>
+          <li>
+            <img src={checkImg} />
+            Access on all devices
+          </li>
         </ul>
         <button>FREE TRIAL</button>
       </div>

@@ -27,13 +27,12 @@ li {
 }
 
 #navbar {
-  position: fixed;
+  position: absolute;
   display: flex;
   justify-content: space-between;
   width: 100%;
   /* gap: 30%;
   margin-right: 2%; */
-  background-color: transparent;
 }
 
 .logo {
@@ -75,8 +74,8 @@ li button {
   color: white;
   border: none;
   border-radius: 6px;
-  height: 3.5vh;
-  width: 8vw;
+  height: 4vh;
+  width: 9.5vw;
 }
 
 #applogo {
@@ -166,31 +165,47 @@ li button {
 }
 .description_info-container {
   display: flex;
-  align-items: center;
-}
-.description_info-text {
-  width: 25%;
+
+  margin: 0 3rem;
 }
 
+.description_info-container img {
+  width: max(365px, 55vw);
+}
+.description_info-text {
+  width: 20%;
+  padding-left: 2%;
+  margin-top: 10%;
+  position: relative;
+}
+.description_info-text span {
+  color: #2768e5;
+}
+.description_info-text button {
+  color: #2768e5;
+  border: 1px solid #2768e5;
+  background-color: transparent;
+  height: 40px;
+}
 .description_info-text-background {
   position: absolute;
-  top: 5%;
-  right: -1%;
-  background-color: rgba(217, 217, 217, 0.19);
-  width: 704px;
-  height: 480.5px;
-  transform: rotateY(-7deg);
-  transform: rotateX(40deg);
+  top: 8%;
+  right: 8%;
+  /* background-color: rgba(217, 217, 217, 0.19); */
+  width: max(428px, 43vw);
+  /* transform: rotateY(-7deg);
+  transform: rotateX(40deg); */
 }
 
 .benefits-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
+  width: 100%;
 }
 .benefit {
-  width: 10%;
+  margin: 0 10%;
   font-weight: bolder;
 }
 
@@ -232,7 +247,14 @@ li button {
   justify-content: center;
   margin-top: 5%;
 }
-
+.pricing_cards-container li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.pricing_cards-container img {
+  width: 25px;
+}
 .pricing_card {
   width: 353px;
   height: 469px;
@@ -259,7 +281,6 @@ li button {
 .pricing_card button {
   width: 159px;
   height: 46px;
-  margin-top: 1rem;
 }
 .pricing_card ul {
   padding-left: 0;
@@ -374,6 +395,13 @@ li button {
   .background-container {
     height: 45vh;
   }
+
+  .description_info-text h2 {
+    font-size: 1rem;
+  }
+  .description_info-text p {
+    font-size: 0.8rem;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -382,7 +410,7 @@ li button {
     font-size: 0.6rem;
   }
   .background-container {
-    height: 40vh;
+    height: 35vh;
   }
   .home_description-container {
     grid-template-columns: 1fr;
@@ -395,12 +423,126 @@ li button {
     justify-content: center;
     gap: 0.3rem;
   }
+  #description {
+    height: fit-content;
+  }
+  .description_info-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  .description_info-text-background {
+    display: none;
+  }
+  .description_info-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    order: 1;
+    background-color: rgba(217, 217, 217, 0.19);
+    width: 100%;
+    height: 25rem;
+    text-align: center;
+  }
+  .description_info-text p {
+    margin: 10px 5rem;
+  }
+
+  .description_info-text button {
+    margin-top: 1.5rem;
+    width: 100px;
+  }
+  .description_info-container img {
+    order: 2;
+  }
+  .benefits-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .benefit {
+    width: 30%;
+  }
+  .pricing_cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-@media (min-width: 768px) and (max-width: 481px) {
+@media (min-width: 481px) and (max-width: 768px) {
+  .nav a,
+  .hero-container a {
+    font-size: 0.6rem;
+  }
+  .background-container {
+    height: 30vh;
+  }
+  .home_description-container {
+    grid-template-columns: 1fr;
+    gap: 2rem 7rem;
+    text-align: center;
+  }
+  .feature .title {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+  }
+  #description {
+    height: fit-content;
+  }
+  .description_info-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  .description_info-text-background {
+    display: none;
+  }
+  .description_info-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    order: 1;
+    background-color: rgba(217, 217, 217, 0.19);
+    width: 100%;
+    height: 25rem;
+    text-align: center;
+  }
+  .description_info-text p {
+    margin: 10px 5rem;
+  }
+
+  .description_info-text button {
+    margin-top: 1.5rem;
+    width: 100px;
+  }
+  .description_info-container img {
+    order: 2;
+  }
+  .benefits-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .benefit {
+    width: 30%;
+  }
+  .pricing_cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (max-width: 480px) {
 }
 
 /* Mobile devices – 320px — 480px.
