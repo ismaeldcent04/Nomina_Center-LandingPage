@@ -1,8 +1,9 @@
 import React from "react";
-
+import backgroundImg from "../../assets/Background.png";
 export const ActionCall = () => {
   return (
     <div className="actionCall-container">
+      <img id="background-image" src={backgroundImg} />
       <div className="actionCall_content-container">
         <div className="actionCall-content-text">
           <h1>Comenzar la nomina.</h1>

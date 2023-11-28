@@ -33,6 +33,7 @@ li {
   width: 100%;
   /* gap: 30%;
   margin-right: 2%; */
+  z-index: 1;
 }
 
 .logo {
@@ -88,38 +89,31 @@ li button {
   gap: 0; */
   /* top: -150px;
   left: -2%; */
-  height: 55vh;
+  /* height: 55vh;
   aspect-ratio: 1/34;
-  width: max(100vw, 100vw);
+  width: max(100vw, 100vw); */
+  width: 100%;
+  height: 55vh;
   /* transform: skew(33deg, -8deg); */
   z-index: -1;
   /* background-color: #120d22; */
   /* border-bottom-left-radius: 30px; */
   overflow: hidden;
 }
-.background.Left {
-  height: 100%;
-  width: 50%;
-  background: linear-gradient(#120d22, #212432);
-  border-bottom-left-radius: 30px;
-}
-.background.right {
-  height: 100%;
-  width: 50%;
-  background-color: #292c3a;
-}
 
 .hero-container {
+  width: 100vw;
+  position: relative;
+}
+.hero-description {
   position: absolute;
-  top: 11%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-top: 1%;
-}
-.hero-description {
-  width: 23%;
-  margin-left: 9%;
+  gap: 15%;
+  width: 65%;
+  top: 22%;
+  left: 18%;
 }
 .hero-description h1 {
   font-size: 2vw;
@@ -327,31 +321,31 @@ li button {
 }
 
 #background-image {
-  width: 100vw;
-  position: absolute;
-  left: 0%;
-  z-index: -1;
+  width: 100%;
+  height: 100%;
 }
 
 .actionCall-container {
-  width: 40%;
-  margin-top: 15%;
-  margin-left: 33%;
+  position: relative;
+  width: 100%;
   z-index: 1;
 }
 
 .actionCall_content-container {
+  position: absolute;
+  top: 45%;
+  left: 25%;
   display: flex;
-  width: fit-content;
+  width: 50%;
   align-items: center;
   text-align: left;
-  gap: 5%;
+  gap: 18%;
   font-size: large;
   color: white;
 }
 
 .actionCall_content-container button {
-  width: max(65px, 40vw);
+  width: 600px;
   height: 55px;
   border-radius: 5px;
   color: #2768e5;
@@ -385,7 +379,7 @@ li button {
   align-items: center;
   gap: 1rem;
 }
-@media (min-width: 1201px) and (max-width: 1613px) {
+@media only screen and (min-width: 1201px) and (max-width: 1613px) {
   .nav a,
   .hero-container a {
     font-size: 0.8rem;
@@ -396,7 +390,7 @@ li button {
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1200px) {
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
   .nav a,
   .hero-container a {
     font-size: 0.6rem;
@@ -425,10 +419,7 @@ li button {
     flex: 0.6;
     font-size: small;
   }
-  .actionCall-container {
-    margin-top: 10rem;
-    margin-left: 18rem;
-  }
+
   .actionCall-container h1 {
     font-size: 1.8rem;
   }
@@ -438,12 +429,11 @@ li button {
   }
 
   .actionCall-container button {
-    width: 600px;
     font-size: 0.8rem;
   }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
   .nav a,
   .hero-container a {
     font-size: 0.6rem;
@@ -533,12 +523,8 @@ li button {
     height: 45vh;
   }
   .actionCall-container {
-    margin-top: 9rem;
-    margin-left: 13rem;
   }
   .actionCall-container h1 {
-    flex: 2;
-    font-size: 1.8rem;
   }
 
   .actionCall-container p {
@@ -546,13 +532,11 @@ li button {
   }
 
   .actionCall-container button {
-    width: 400px;
-    height: 45px;
     font-size: 0.6rem;
   }
 }
 
-@media (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 481px) and (max-width: 768px) {
   .nav a,
   .hero-container a {
     font-size: 0.6rem;
@@ -641,27 +625,17 @@ li button {
   #background-image {
     height: 45vh;
   }
-  .actionCall-container {
-    margin-top: 9rem;
-    margin-left: 8rem;
-  }
-  .actionCall-container h1 {
-    flex: 2;
-    font-size: 1.6rem;
-  }
 
   .actionCall-container p {
     font-size: 0.7rem;
   }
 
   .actionCall-container button {
-    width: 350px;
-    height: 40px;
     font-size: 0.6rem;
   }
 }
 
-@media (max-width: 480px) {
+@media only screen and (max-width: 480px) {
 }
 
 /* Mobile devices – 320px — 480px.
