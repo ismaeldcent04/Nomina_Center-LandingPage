@@ -6,8 +6,14 @@ body {
   margin: 0;
   width: 100vw;
 }
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
 
 #home {
+  position: relative;
   width: 100vw;
   overflow: hidden;
 }
@@ -63,6 +69,25 @@ h1 span {
 
   gap: 20%;
 }
+
+.nav .menu {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 3rem;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2.5rem;
+  height: 2rem;
+}
+
+.nav .menu span {
+  height: 0.3rem;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 0.2rem;
+}
+
 .button {
   display: flex;
   justify-content: center;
@@ -100,6 +125,9 @@ li button {
   /* border-bottom-left-radius: 30px; */
   overflow: hidden;
 }
+.background-container.second {
+  display: none;
+}
 
 .hero-container {
   width: 100vw;
@@ -131,7 +159,7 @@ li button {
 }
 .image.first {
   margin-left: 5%;
-  width: max(100px, 28vw);
+  width: max(50px, 30vw);
 }
 
 .home_description-container {
@@ -164,7 +192,7 @@ li button {
 }
 
 .description_info-container img {
-  width: max(365px, 55vw);
+  width: max(365px, 50vw);
 }
 .description_info-text {
   width: 20%;
@@ -184,9 +212,9 @@ li button {
 .description_info-text-background {
   position: absolute;
   top: 8%;
-  right: 8%;
+  right: 15%;
   /* background-color: rgba(217, 217, 217, 0.19); */
-  width: max(428px, 43vw);
+  width: max(428px, 40vw);
   /* transform: rotateY(-7deg);
   transform: rotateX(40deg); */
 }
@@ -202,11 +230,14 @@ li button {
   margin: 0 10%;
   font-weight: bolder;
 }
+.benefit img {
+  width: max(65px, 9vw);
+}
 
 #pricing {
   width: 100vw;
   height: 100vh;
-  padding-top: 3%;
+  margin-top: 5%;
 }
 .pricing_header-container {
   display: flex;
@@ -251,19 +282,24 @@ li button {
 }
 .pricing_card {
   width: 353px;
-  height: 469px;
+  height: 450px;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 1px 2px 12px 2px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
 }
+
+.pricing_card span {
+  color: #2768e5;
+  font-size: larger;
+}
 .pricing_card.left,
 .pricing_card.right {
   z-index: 0;
 }
 .pricing_card.middle {
-  height: 531px;
+  /* height: 531px; */
   box-shadow: -1px 2px 12px 2px rgba(0, 0, 0, 0.25),
     1px 2px 12px 2px rgba(0, 0, 0, 0.1);
 }
@@ -280,7 +316,7 @@ li button {
   padding-left: 0;
 }
 .pricing_card li {
-  padding: 0.8rem;
+  padding: 0.4rem;
 }
 
 #testimonials {
@@ -304,20 +340,26 @@ li button {
   display: flex;
   padding: 1rem;
   justify-content: center;
-  gap: 3rem;
+  align-items: center;
+  gap: 1.5rem;
 }
 .testimonials_picture-container img {
-  width: max(50px, 5vw);
+  height: 9vh;
+}
+
+.testimonials_picture-container img.active {
+  height: 12vh;
 }
 
 .clients_Pictures-container {
   display: flex;
   justify-content: center;
-  gap: 3rem;
+
   padding: 2rem;
 }
 .clients_Pictures-container img {
-  width: max(60px, 8vw);
+  width: max(45px, 6vw);
+  padding: 0 1rem;
 }
 
 #background-image {
@@ -419,6 +461,8 @@ li button {
     flex: 0.6;
     font-size: small;
   }
+  .actionCall_content-container {
+  }
 
   .actionCall-container h1 {
     font-size: 1.8rem;
@@ -438,19 +482,58 @@ li button {
   .hero-container a {
     font-size: 0.6rem;
   }
+  .nav .menu {
+    display: flex;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .nav ul {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    text-align: center;
+    width: 12%;
+    margin-bottom: 0.25rem;
+    top: 3rem;
+    right: 0.5rem;
+  }
+  .nav ul.open {
+    display: flex;
+  }
+
+  .nav ul .button {
+    width: 75px;
+    height: 25px;
+  }
+
+  .nav ul li {
+    width: 100%;
+  }
+
   .background-container {
     height: 35vh;
   }
   .home_description-container {
     grid-template-columns: 1fr;
     gap: 2rem 7rem;
+    justify-items: center;
     text-align: center;
+  }
+  .home_description-container .feature {
+    width: 70%;
   }
   .feature .title {
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0.3rem;
+  }
+  .feature .title h3 {
+    margin: 0;
   }
   #description {
     height: fit-content;
@@ -496,7 +579,8 @@ li button {
   .benefit {
     width: 30%;
   }
-  .pricing_card {
+  .pricing_card,
+  .pricing_card.middle {
     width: 300px;
   }
   .pricing_cards-container {
@@ -524,7 +608,11 @@ li button {
   }
   .actionCall-container {
   }
+  .actionCall_content-container {
+    top: 40%;
+  }
   .actionCall-container h1 {
+    font-size: 1.5rem;
   }
 
   .actionCall-container p {
@@ -532,6 +620,7 @@ li button {
   }
 
   .actionCall-container button {
+    height: 2.3rem;
     font-size: 0.6rem;
   }
 }
@@ -541,6 +630,38 @@ li button {
   .hero-container a {
     font-size: 0.6rem;
   }
+  .nav .menu {
+    display: flex;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .nav ul {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    text-align: center;
+    width: 12%;
+    margin-bottom: 0.25rem;
+    top: 3rem;
+    right: 0.5rem;
+  }
+  .nav ul.open {
+    display: flex;
+  }
+
+  .nav ul .button {
+    width: 75px;
+    height: 25px;
+  }
+
+  .nav ul li {
+    width: 100%;
+  }
+
   .background-container {
     height: 30vh;
   }
@@ -599,43 +720,257 @@ li button {
   .benefit {
     width: 30%;
   }
+  .pricing_card,
+  .pricing_card.middle {
+    width: 300px;
+  }
   #pricing {
     height: fit-content;
   }
-  #testimonials {
-    width: fit-content;
-  }
   .pricing_header-container h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   .pricing_cards-container {
     flex-direction: column;
     align-items: center;
   }
+  .plans_title-container {
+    width: 380px;
+    font-size: 0.8rem;
+  }
+  #testimonials {
+    width: fit-content;
+  }
+  #testimonials h1 {
+    font-size: 1.5rem;
+  }
+
   .carrousel-testimonial {
     gap: 3rem;
   }
   .carrousel-testimonial img {
-    width: 80px;
+    width: 60px;
   }
   .carrousel-testimonial p {
     flex: 0.7;
-    font-size: smaller;
-  }
-  #background-image {
-    height: 45vh;
-  }
-
-  .actionCall-container p {
     font-size: 0.7rem;
   }
 
+  .testimonials_picture-container img {
+    height: 3rem;
+  }
+  .testimonials_picture-container img.active {
+    height: 4rem;
+  }
+
+  .clients_Pictures-container img {
+    padding: 0.5rem;
+  }
+  #background-image {
+    height: 30vh;
+  }
+
+  .actionCall_content-container {
+    top: 32%;
+    left: 20%;
+    width: 70%;
+    gap: 15%;
+  }
+  #actionCall-header {
+    font-size: 0.7rem;
+  }
+  .actionCall-container p {
+    font-size: 0.5rem;
+  }
+
   .actionCall-container button {
+    height: 2.3rem;
+    width: 8rem;
     font-size: 0.6rem;
   }
 }
 
 @media only screen and (max-width: 480px) {
+  .nav a,
+  .hero-container a {
+    font-size: 0.6rem;
+  }
+  .nav .menu {
+    display: flex;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .nav ul {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    text-align: center;
+    width: 12%;
+    margin-bottom: 0.25rem;
+    top: 3rem;
+    right: 0.5rem;
+  }
+  .nav ul.open {
+    display: flex;
+  }
+
+  .nav ul .button {
+    width: 75px;
+    height: 25px;
+  }
+
+  .nav ul li {
+    width: 100%;
+  }
+
+  .background-container {
+    height: 30vh;
+  }
+  .home_description-container {
+    grid-template-columns: 1fr;
+    gap: 2rem 7rem;
+    text-align: center;
+  }
+  .feature .title {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+  }
+  #description {
+    height: fit-content;
+  }
+  .description_info-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  .description_info-text-background {
+    display: none;
+  }
+  .description_info-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    order: 1;
+    background-color: rgba(217, 217, 217, 0.19);
+    width: 100%;
+    height: 25rem;
+    text-align: center;
+  }
+  .description_info-text p {
+    margin: 10px 5rem;
+  }
+
+  .description_info-text button {
+    margin-top: 1.5rem;
+    width: 100px;
+  }
+  .description_info-container img {
+    order: 2;
+  }
+  .benefits-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .benefit {
+    width: 60%;
+  }
+  .benefit p {
+    font-size: 0.8rem;
+  }
+  #pricing {
+    height: fit-content;
+  }
+  .pricing_card,
+  .pricing_card.middle {
+    width: 250px;
+    height: 350px;
+  }
+  .pricing_header-container h1 {
+    font-size: 0.8rem;
+  }
+  .pricing_cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .pricing_card h4 {
+    margin: 1rem;
+  }
+  .pricing_card ul {
+    margin-top: 0;
+  }
+  .pricing_card li {
+    padding: 0.2rem;
+  }
+  .pricing_card div {
+    margin-top: 1rem;
+  }
+  .plans_title-container {
+    width: 300px;
+    font-size: 0.7rem;
+  }
+  #testimonials {
+    width: fit-content;
+  }
+  #testimonials h1 {
+    font-size: 1.5rem;
+  }
+
+  .carrousel-testimonial {
+    gap: 0.5rem;
+  }
+  .carrousel-testimonial img {
+    width: 50px;
+  }
+  .carrousel-testimonial p {
+    flex: 0.7;
+    font-size: 0.6rem;
+  }
+  #background-image {
+    height: 30vh;
+  }
+  .testimonials_picture-container {
+    gap: 1rem;
+  }
+  .testimonials_picture-container img {
+    height: 2rem;
+  }
+  .testimonials_picture-container img.active {
+    height: 3rem;
+  }
+
+  .clients_Pictures-container img {
+    padding: 0rem;
+  }
+
+  .actionCall_content-container {
+    top: 32%;
+    left: 20%;
+    width: 70%;
+    gap: 15%;
+  }
+  #actionCall-header {
+    font-size: 0.7rem;
+  }
+  .actionCall-container p {
+    font-size: 0.5rem;
+  }
+
+  .actionCall-container button {
+    height: 2.3rem;
+    width: 8rem;
+    font-size: 0.6rem;
+  }
 }
 
 /* Mobile devices – 320px — 480px.

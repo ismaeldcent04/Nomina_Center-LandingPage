@@ -2,10 +2,12 @@ import React from "react";
 import laptopImg from "../../assets/Laptop.png";
 import nominaImg from "../../assets/Nominacenter.png";
 import backgroundImg from "../../assets/Top-Background.png";
+import secondbackgroundImg from "../../assets/Second-Top-Background.png";
 export const HomeHero = () => {
   return (
     <div className="hero-container">
       <img src={backgroundImg} className="background-container" />
+      <img src={secondbackgroundImg} className="background-container second" />
       <div className="hero-description">
         <div>
           <h1>Automatiza tus procesos de RRHH</h1>

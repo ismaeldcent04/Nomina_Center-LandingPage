@@ -19,7 +19,7 @@ function App() {
         {/* TESTIMONIALS SECTION */}
         <TestimonialSection />
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

@@ -18,7 +18,7 @@ export const TestimonialsCarrousel = () => {
       <div className="testimonials_picture-container">
         <img src={personImg} />
         <img src={personImg} />
-        <img src={personImg} />
+        <img className="active" src={personImg} />
         <img src={personImg} />
         <img src={personImg} />
       </div>
