@@ -5,6 +5,7 @@
 body {
   margin: 0;
   width: 100vw;
+  overflow-x: hidden;
 }
 @media (prefers-reduced-motion: no-preference) {
   * {
@@ -49,6 +50,7 @@ li {
   margin-left: 8%;
   font-size: 0.8rem;
 }
+
 h1 span {
   color: #2768e5;
 }
@@ -76,7 +78,7 @@ h1 span {
   top: 1rem;
   right: 3rem;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 20%;
   width: 2.5rem;
   height: 2rem;
 }
@@ -105,9 +107,10 @@ li button {
 }
 
 #applogo {
-  width: max(50px, 3vw);
-  height: max(50px, 4vh);
+  width: max(35px, 3vw);
+  height: max(35px, 4vh);
 }
+
 .background-container {
   /* position: absolute; */
   /* display: flex;
@@ -244,6 +247,7 @@ li button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 .plans_title-container {
   display: flex;
@@ -256,6 +260,9 @@ li button {
 }
 
 .plans_title-container h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #2768e5;
   width: 80%;
   height: 50%;
@@ -400,8 +407,9 @@ li button {
 }
 
 .sections-container {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: space-around;
   gap: 20%;
 }
 .sections-container p {
@@ -436,6 +444,21 @@ li button {
   .nav a,
   .hero-container a {
     font-size: 0.6rem;
+  }
+  .hero-description {
+    width: 70%;
+  }
+
+  .hero-description h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-description p {
+    font-size: 0.7rem;
+  }
+
+  .image.first {
+    width: 35vw;
   }
 
   .background-container {
@@ -486,7 +509,7 @@ li button {
     display: flex;
   }
 
-  .nav {
+  #navbar {
     flex-direction: column;
     align-items: start;
   }
@@ -495,28 +518,74 @@ li button {
     display: none;
     position: absolute;
     flex-direction: column;
+
     text-align: center;
-    width: 12%;
+    width: 20%;
+    padding: 0.5rem 0;
     margin-bottom: 0.25rem;
     top: 3rem;
-    right: 0.5rem;
+    right: 3rem;
+
+    border-radius: 10px;
+  }
+  .nav ul li {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    margin-bottom: 0.3rem;
+    border-radius: 10px;
+    background-color: rgba(18, 13, 34, 1);
+  }
+  .nav ul li:hover,
+  .nav ul li:active {
+    background-color: rgba(217, 217, 217, 0.5);
   }
   .nav ul.open {
     display: flex;
+    align-items: center;
+
+    padding-left: 0;
   }
 
   .nav ul .button {
-    width: 75px;
-    height: 25px;
-  }
-
-  .nav ul li {
     width: 100%;
+    height: 2.2rem;
+    border-radius: 10px;
+  }
+  .nav ul .button:hover {
+    background-color: #2767e5;
+  }
+  .background-container {
+    display: none;
   }
 
-  .background-container {
-    height: 35vh;
+  .background-container.second {
+    display: block;
+    height: 47vh;
   }
+  .hero-description {
+    width: 80%;
+    top: 22%;
+    gap: 3%;
+    left: 10%;
+  }
+  .hero-description h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-description p {
+    font-size: 0.7rem;
+  }
+  .hero-description .button {
+    width: 7rem;
+  }
+
+  .image.first {
+    width: 40vw;
+  }
+
   .home_description-container {
     grid-template-columns: 1fr;
     gap: 2rem 7rem;
@@ -644,26 +713,70 @@ li button {
     position: absolute;
     flex-direction: column;
     text-align: center;
-    width: 12%;
+    width: 20%;
+    padding: 0.5rem 0;
     margin-bottom: 0.25rem;
     top: 3rem;
-    right: 0.5rem;
-  }
-  .nav ul.open {
-    display: flex;
-  }
-
-  .nav ul .button {
-    width: 75px;
-    height: 25px;
+    right: 3rem;
+    border-radius: 10px;
   }
 
   .nav ul li {
-    width: 100%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    margin-bottom: 0.3rem;
+    border-radius: 10px;
+    background-color: rgba(18, 13, 34, 1);
+  }
+  .nav ul li:hover,
+  .nav ul li:active {
+    background-color: rgba(217, 217, 217, 0.5);
+  }
+  .nav ul.open {
+    display: flex;
+    align-items: center;
+
+    padding-left: 0;
   }
 
+  .nav ul .button {
+    width: 100%;
+    height: 2.2rem;
+    border-radius: 10px;
+  }
+  .nav ul .button:hover {
+    background-color: #2767e5;
+  }
   .background-container {
-    height: 30vh;
+    display: none;
+  }
+
+  .background-container.second {
+    display: block;
+    height: 40vh;
+  }
+  .hero-description {
+    width: 85%;
+    top: 22%;
+    gap: 1%;
+    left: 10%;
+  }
+  .hero-description h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero-description p {
+    font-size: 0.6rem;
+  }
+  .hero-description .button {
+    width: 7rem;
+  }
+
+  .image.first {
+    width: 45vw;
   }
   .home_description-container {
     grid-template-columns: 1fr;
@@ -771,10 +884,10 @@ li button {
   }
 
   .actionCall_content-container {
-    top: 32%;
-    left: 20%;
+    top: 37%;
+    left: 15%;
     width: 70%;
-    gap: 15%;
+    gap: 20%;
   }
   #actionCall-header {
     font-size: 0.7rem;
@@ -785,12 +898,16 @@ li button {
 
   .actionCall-container button {
     height: 2.3rem;
-    width: 8rem;
+    width: 20rem;
     font-size: 0.6rem;
   }
 }
 
 @media only screen and (max-width: 480px) {
+  .logo {
+    margin-top: 8px;
+    font-size: 0.5rem;
+  }
   .nav a,
   .hero-container a {
     font-size: 0.6rem;
@@ -803,32 +920,78 @@ li button {
     flex-direction: column;
     align-items: start;
   }
-
+  .nav .menu span {
+    width: 2.2rem;
+    height: 0.25rem;
+  }
   .nav ul {
     display: none;
     position: absolute;
     flex-direction: column;
     text-align: center;
-    width: 12%;
+    width: 20%;
+    padding: 0.5rem 0;
     margin-bottom: 0.25rem;
     top: 3rem;
-    right: 0.5rem;
+    right: 3rem;
+    border-radius: 10px;
+  }
+  .nav ul li {
+    width: 100%;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 0.3rem;
+    border-radius: 10px;
+    background-color: rgba(18, 13, 34, 1);
+  }
+  .nav ul li:hover,
+  .nav ul li:active {
+    background-color: rgba(217, 217, 217, 0.5);
   }
   .nav ul.open {
     display: flex;
+    align-items: center;
+
+    padding-left: 0;
   }
 
   .nav ul .button {
-    width: 75px;
-    height: 25px;
-  }
-
-  .nav ul li {
     width: 100%;
+    height: 1.5rem;
+    border-radius: 10px;
   }
 
   .background-container {
-    height: 30vh;
+    display: none;
+  }
+
+  .background-container.second {
+    display: block;
+    height: 40vh;
+  }
+  .hero-description {
+    width: 85%;
+    top: 22%;
+    gap: 1%;
+    left: 10%;
+  }
+  .hero-description h1 {
+    font-size: 1.1rem;
+  }
+
+  .hero-description p {
+    font-size: 0.5rem;
+  }
+  .hero-description .button {
+    width: 7rem;
+    height: 1.5rem;
+  }
+
+  .image.first {
+    width: 40vw;
   }
   .home_description-container {
     grid-template-columns: 1fr;
@@ -874,6 +1037,7 @@ li button {
     width: 100px;
   }
   .description_info-container img {
+    width: 80vw;
     order: 2;
   }
   .benefits-container {
@@ -916,14 +1080,15 @@ li button {
     margin-top: 1rem;
   }
   .plans_title-container {
-    width: 300px;
-    font-size: 0.7rem;
+    width: 95vw;
+    height: 5vh;
+    font-size: 0.6rem;
   }
   #testimonials {
     width: fit-content;
   }
   #testimonials h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .carrousel-testimonial {
@@ -954,10 +1119,10 @@ li button {
   }
 
   .actionCall_content-container {
-    top: 32%;
-    left: 20%;
-    width: 70%;
-    gap: 15%;
+    top: 38%;
+    left: 15%;
+    width: 76%;
+    gap: 11%;
   }
   #actionCall-header {
     font-size: 0.7rem;
@@ -967,8 +1132,8 @@ li button {
   }
 
   .actionCall-container button {
-    height: 2.3rem;
-    width: 8rem;
+    height: 2rem;
+    width: 11rem;
     font-size: 0.6rem;
   }
 }
