@@ -5,13 +5,12 @@ export const Footer = () => {
     <footer id="footer">
       <div className="sections-container">
         <div>
-          <h4>Conoce mas</h4>
-          <p>Conoce mas</p>
-          <p>Conoce mas</p>
-          <p>Conoce mas</p>
-          <p>Conoce mas</p>
-          <p>Conoce mas</p>
-          <p>Conoce mas</p>
+          <h4>Home</h4>
+          <p>Beneficios</p>
+          <p>Testimonios</p>
+          <p>Logros</p>
+          <p>Privacidad</p>
+          <p>Empresa</p>
         </div>
         <div>
           <h4>Soporte</h4>

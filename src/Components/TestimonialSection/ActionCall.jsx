@@ -6,7 +6,7 @@ export const ActionCall = () => {
       <img id="background-image" src={backgroundImg} />
       <div className="actionCall_content-container">
         <div className="actionCall-content-text">
-          <h1 id="actionCall-header">Comenzar la nomina.</h1>
+          <h1 id="actionCall-header">Comenzar la Nomina.</h1>
           <p>
             Cuenta con múltiples herramientas relacionadas de manejo de personal
             que te facilita la relación con tus colaboradores y cuenta con todos

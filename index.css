@@ -1,3 +1,5 @@
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
 :root {
   box-sizing: border-box;
 }
@@ -6,12 +8,15 @@ body {
   margin: 0;
   width: 100vw;
   overflow-x: hidden;
+  font-family: "Jost", sans-serif;
 }
 @media (prefers-reduced-motion: no-preference) {
   * {
     scroll-behavior: smooth;
   }
 }
+
+/* HOME SECTION */
 
 #home {
   position: relative;
@@ -71,7 +76,9 @@ h1 span {
 
   gap: 20%;
 }
-
+.nav ul li a:hover {
+  color: #2767e5;
+}
 .nav .menu {
   display: none;
   position: absolute;
@@ -81,6 +88,11 @@ h1 span {
   gap: 20%;
   width: 2.5rem;
   height: 2rem;
+}
+.nav ul li .button:hover,
+.button:hover {
+  color: #120d22;
+  background-color: #2755ff;
 }
 
 .nav .menu span {
@@ -107,8 +119,8 @@ li button {
 }
 
 #applogo {
-  width: max(35px, 3vw);
-  height: max(35px, 4vh);
+  width: max(50px, 3vw);
+  height: max(50px, 4vh);
 }
 
 .background-container {
@@ -183,6 +195,8 @@ li button {
   width: max(50px, 4vw);
 }
 
+/* Description Section */
+
 #description {
   position: relative;
   height: 100vh;
@@ -212,6 +226,9 @@ li button {
   background-color: transparent;
   height: 40px;
 }
+.description_info-text button:hover {
+  background-color: blue;
+}
 .description_info-text-background {
   position: absolute;
   top: 8%;
@@ -236,6 +253,8 @@ li button {
 .benefit img {
   width: max(65px, 9vw);
 }
+
+/* Pricing Section */
 
 #pricing {
   width: 100vw;
@@ -278,6 +297,7 @@ li button {
   position: relative;
   justify-content: center;
   margin-top: 5%;
+  gap: 1rem;
 }
 .pricing_cards-container li {
   display: flex;
@@ -307,8 +327,8 @@ li button {
 }
 .pricing_card.middle {
   /* height: 531px; */
-  box-shadow: -1px 2px 12px 2px rgba(0, 0, 0, 0.25),
-    1px 2px 12px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: -1px 2px 12px 2px rgba(0, 0, 0, 0.25);
+  /* 1px 2px 12px 2px rgba(0, 0, 0, 0.1); */
 }
 
 .pricing_card div {
@@ -326,6 +346,8 @@ li button {
   padding: 0.4rem;
 }
 
+/* Testimonials Section */
+
 #testimonials {
   width: 100vw;
   height: 100vh;
@@ -339,6 +361,21 @@ li button {
   text-align: center;
   gap: 12rem;
 }
+
+.arrow {
+  position: absolute;
+  z-index: 10;
+}
+.next {
+  right: 5%;
+  top: 0%;
+}
+
+.prev {
+  left: 5%;
+  top: 0%;
+}
+
 .carrousel-testimonial p {
   flex: 0.5;
   color: #8b8d95;
@@ -401,6 +438,8 @@ li button {
   background-color: #ffffff;
 }
 
+/* Footer */
+
 #footer {
   width: 100vw;
   margin-top: 20%;
@@ -409,8 +448,7 @@ li button {
 .sections-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  justify-content: space-around;
-  gap: 20%;
+  justify-items: center;
 }
 .sections-container p {
   color: #8b8d95;
@@ -422,13 +460,16 @@ li button {
 .copyright-section {
   display: flex;
   justify-content: space-between;
-  padding: 7rem;
+  padding: 8rem 9rem 2rem 3rem;
 }
 .logo-copyright {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
+
+/* Responsiveness */
+
 @media only screen and (min-width: 1201px) and (max-width: 1613px) {
   .nav a,
   .hero-container a {
@@ -483,8 +524,6 @@ li button {
   .carrousel-testimonial p {
     flex: 0.6;
     font-size: small;
-  }
-  .actionCall_content-container {
   }
 
   .actionCall-container h1 {
@@ -665,7 +704,7 @@ li button {
   #testimonials {
     width: fit-content;
   }
-  .carrousel-testimonial img {
+  .arrow {
     width: 85px;
   }
   .carrousel-testimonial p {
@@ -675,8 +714,7 @@ li button {
   #background-image {
     height: 45vh;
   }
-  .actionCall-container {
-  }
+
   .actionCall_content-container {
     top: 40%;
   }
@@ -691,6 +729,9 @@ li button {
   .actionCall-container button {
     height: 2.3rem;
     font-size: 0.6rem;
+  }
+  .sections-container {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -861,7 +902,7 @@ li button {
   .carrousel-testimonial {
     gap: 3rem;
   }
-  .carrousel-testimonial img {
+  .arrow img {
     width: 60px;
   }
   .carrousel-testimonial p {
@@ -900,6 +941,9 @@ li button {
     height: 2.3rem;
     width: 20rem;
     font-size: 0.6rem;
+  }
+  .sections-container {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -1094,7 +1138,7 @@ li button {
   .carrousel-testimonial {
     gap: 0.5rem;
   }
-  .carrousel-testimonial img {
+  .arrow {
     width: 50px;
   }
   .carrousel-testimonial p {
@@ -1135,6 +1179,9 @@ li button {
     height: 2rem;
     width: 11rem;
     font-size: 0.6rem;
+  }
+  .sections-container {
+    grid-template-columns: 1fr 1fr;
   }
 }
 

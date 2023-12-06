@@ -1,29 +1,48 @@
 import React from "react";
+import Slider from "react-slick";
 import leftImg from "../../assets/Left-Arrow.png";
 import rightImg from "../../assets/Right-Arrow.png";
-import personImg from "../../assets/person.png";
+import { testimonialsData } from "./TestimonialsData";
+import { TestimonialsCarrouselItem } from "./TestimonialsCarrouselItem";
+
 export const TestimonialsCarrousel = () => {
+  const NextArrow = ({ onClick }) => {
+    return (
+      <div className="arrow next" onClick={onClick}>
+        <img src={rightImg} className="next-arrow" />
+      </div>
+    );
+  };
+  const PrevArrow = ({ onClick }) => {
+    return (
+      <div className="arrow prev" onClick={onClick}>
+        <img src={leftImg} className="next-arrow" />
+      </div>
+    );
+  };
+  const settings = {
+    infinite: true,
+    lazyLoad: true,
+    speed: 300,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+  };
   return (
-    <div className="testimonials_carrousel-container">
-      <div className="carrousel-testimonial">
-        <img src={leftImg} />
-        <p>
-          "There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don't look even slightly
-          believable."
-        </p>
-        <img src={rightImg} />
-      </div>
-      <div className="testimonials_picture-container">
-        <img src={personImg} />
-        <img src={personImg} />
-        <img className="active" src={personImg} />
-        <img src={personImg} />
-        <img src={personImg} />
-      </div>
-      <p>Calvin Klein</p>
-      <p>Security Manager</p>
-    </div>
+    <Slider {...settings}>
+      {testimonialsData.map((testimony, idx) => {
+        return (
+          <div key={testimony.id} className="testimonials-slider">
+            <TestimonialsCarrouselItem
+              testimony={testimony.testimony}
+              image={testimony.image}
+              name={testimony.name}
+              position={testimony.position}
+            />
+          </div>
+        );
+      })}
+    </Slider>
   );
 };
