@@ -14,7 +14,7 @@ export const ActionCall = () => {
             gubernamentales a las empresas.
           </p>
         </div>
-        <button>Iniciar Sesion/Registrarse</button>
+        <button>Iniciar Sesión/Registrarse</button>
       </div>
     </div>
   );

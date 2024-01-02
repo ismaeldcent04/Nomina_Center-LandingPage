@@ -16,7 +16,7 @@ export const DescriptionInfo = () => {
           el momento de dar el paso y colocar tu empresa un nivel más alto.
           Forma parte de la familia y organicemos tu Nomina.
         </p>
-        <button>Contactanos</button>
+        <button>Contáctanos</button>
       </div>
     </div>
   );

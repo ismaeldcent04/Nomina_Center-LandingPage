@@ -7,7 +7,7 @@ import { TestimonialsCarrousel } from "./TestimonialsCarrousel";
 export const TestimonialSection = () => {
   return (
     <div id="testimonials">
-      <h1>Historias de exito</h1>
+      <h1>Historias de éxito</h1>
       <TestimonialsCarrousel />
       {/* <TestimonialsCarrouselItem /> */}
       <ClientsPictures />

@@ -23,14 +23,34 @@ export const TestimonialsCarrousel = () => {
   const settings = {
     infinite: true,
     lazyLoad: true,
-    speed: 300,
+    speed: 500,
+    cssEase: "linear",
     slidesToShow: 1,
     slidesToScroll: 1,
+    adaptiveHeight: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
-    <Slider {...settings}>
+    <Slider className="testimonials-slider" {...settings} re>
       {testimonialsData.map((testimony, idx) => {
         return (
           <div key={testimony.id} className="testimonials-slider">

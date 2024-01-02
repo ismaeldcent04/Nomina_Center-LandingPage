@@ -361,10 +361,18 @@ li button {
   text-align: center;
   gap: 12rem;
 }
+.testimonials-slider {
+  width: 100vw;
+}
 
 .arrow {
   position: absolute;
   z-index: 10;
+  width: 300px;
+}
+
+.arrow img {
+  width: 100px;
 }
 .next {
   right: 5%;
@@ -707,6 +715,9 @@ li button {
   .arrow {
     width: 85px;
   }
+  .arrow img {
+    width: 85px;
+  }
   .carrousel-testimonial p {
     flex: 0.6;
     font-size: small;
@@ -901,6 +912,9 @@ li button {
 
   .carrousel-testimonial {
     gap: 3rem;
+  }
+  .arrow {
+    width: 60px;
   }
   .arrow img {
     width: 60px;
@@ -1121,15 +1135,16 @@ li button {
     padding: 0.2rem;
   }
   .pricing_card div {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
   .plans_title-container {
-    width: 95vw;
+    width: 85vw;
     height: 5vh;
     font-size: 0.6rem;
   }
   #testimonials {
     width: fit-content;
+    height: fit-content;
   }
   #testimonials h1 {
     font-size: 1.2rem;
@@ -1139,7 +1154,10 @@ li button {
     gap: 0.5rem;
   }
   .arrow {
-    width: 50px;
+    width: 30px;
+  }
+  .arrow img {
+    width: 30px;
   }
   .carrousel-testimonial p {
     flex: 0.7;
@@ -1164,12 +1182,12 @@ li button {
 
   .actionCall_content-container {
     top: 38%;
-    left: 15%;
-    width: 76%;
+    left: 10%;
+    width: 80%;
     gap: 11%;
   }
   #actionCall-header {
-    font-size: 0.7rem;
+    font-size: max(1rem, 2vw) !important  ;
   }
   .actionCall-container p {
     font-size: 0.5rem;
@@ -1182,6 +1200,18 @@ li button {
   }
   .sections-container {
     grid-template-columns: 1fr 1fr;
+    padding: 2rem;
+  }
+  .copyright-section {
+    width: 80%;
+    padding-left: 2rem;
+  }
+
+  .copyright-section p {
+    font-size: 0.7rem;
+  }
+  .logo-copyright {
+    gap: 0.5rem;
   }
 }
 
