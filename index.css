@@ -406,8 +406,7 @@ li button {
 .clients_Pictures-container {
   display: flex;
   justify-content: center;
-
-  padding: 2rem;
+  padding: 1rem;
 }
 .clients_Pictures-container img {
   width: max(45px, 6vw);
@@ -458,9 +457,14 @@ li button {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
 }
-.sections-container p {
+.sections-container p,
+.sections-container p a:active,
+.sections-container p a:link,
+.sections-container p a:visited,
+.sections-container p a {
   color: #8b8d95;
 }
+
 .nominalogo {
   width: 30px;
   height: 30px;

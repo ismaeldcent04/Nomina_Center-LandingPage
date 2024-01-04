@@ -22,7 +22,14 @@ export const Footer = () => {
         <div>
           <h4>Siguenos</h4>
           <p>Instagram</p>
-          <p>Linkedin</p>
+          <p>
+            <a
+              href="https://www.linkedin.com/in/nomina-center-063a892a7/"
+              target="_blank"
+            >
+              Linkedin
+            </a>
+          </p>
         </div>
         <div>
           <h4>NominaCenter Free</h4>
