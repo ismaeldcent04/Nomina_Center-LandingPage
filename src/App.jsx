@@ -5,6 +5,7 @@ import { DescriptionSection } from "./Components/DescriptionSection/DescriptionS
 import { PricingSection } from "./Components/PricingSection/PricingSection";
 import { TestimonialSection } from "./Components/TestimonialSection/TestimonialSection";
 import { Footer } from "./Components/Footer/Footer";
+import { MobileAppSection } from "./Components/MobileAppSection/MobileAppSection";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <DescriptionSection />
         {/* PRICING SECTION  */}
         <PricingSection />
+        {/* {MOBILEAPP SECTION} */}
+        <MobileAppSection />
         {/* TESTIMONIALS SECTION */}
         <TestimonialSection />
       </main>

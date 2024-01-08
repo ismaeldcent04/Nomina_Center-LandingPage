@@ -21,7 +21,11 @@ export const Footer = () => {
         </div>
         <div>
           <h4>Siguenos</h4>
-          <p>Instagram</p>
+          <p>
+            <a href="https://www.instagram.com/nominacenter" target="_blank">
+              Instagram
+            </a>
+          </p>
           <p>
             <a
               href="https://www.linkedin.com/in/nomina-center-063a892a7/"

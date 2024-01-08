@@ -21,7 +21,6 @@ body {
 #home {
   position: relative;
   width: 100vw;
-  overflow: hidden;
 }
 
 #home,
@@ -198,6 +197,7 @@ li button {
 /* Description Section */
 
 #description {
+  overflow-x: hidden;
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -345,6 +345,61 @@ li button {
 .pricing_card li {
   padding: 0.4rem;
 }
+/*MobileApp Section*/
+#mobileApp {
+  position: relative;
+  width: 100vw;
+  height: 108vh;
+  margin: 2rem 0;
+}
+
+.mobileApp-background {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  object-fit: fill;
+  aspect-ratio: 1/1;
+  z-index: 1;
+}
+.mobileSection-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: none;
+  z-index: 2;
+}
+#mobileSection-logo {
+  width: 10rem;
+}
+
+.mobileSection-content h1 {
+  font-family: "Londrina Outline";
+  font-size: 9rem;
+  color: #fff;
+  margin: 2 0;
+}
+.notification-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  width: 30rem;
+  height: 4rem;
+  border-radius: 43px;
+  border: 2px solid #fff;
+  background: #4b82e9;
+  font-size: x-large;
+  gap: 0.5rem;
+  color: #fff;
+}
+#notification-icon {
+  width: 30px;
+}
 
 /* Testimonials Section */
 
@@ -448,6 +503,7 @@ li button {
 /* Footer */
 
 #footer {
+  overflow-x: hidden;
   width: 100vw;
   margin-top: 20%;
 }
@@ -491,6 +547,22 @@ li button {
   .background-container {
     height: 50vh;
   }
+  #mobileSection-logo {
+    width: 9rem;
+  }
+
+  .mobileSection-content h1 {
+    font-size: 8rem;
+  }
+  .notification-button {
+    gap: 0.5rem;
+    width: 25rem;
+    height: 4rem;
+    font-size: x-large;
+  }
+  #notification-icon {
+    width: 35px;
+  }
 }
 
 @media only screen and (min-width: 1025px) and (max-width: 1200px) {
@@ -529,6 +601,23 @@ li button {
   }
   .pricing_header-container h1 {
     font-size: 1.8rem;
+  }
+
+  #mobileSection-logo {
+    width: 8rem;
+  }
+
+  .mobileSection-content h1 {
+    font-size: 7rem;
+  }
+  .notification-button {
+    gap: 0.5rem;
+    width: 25rem;
+    height: 4rem;
+    font-size: x-large;
+  }
+  #notification-icon {
+    width: 35px;
   }
   .carrousel-testimonial img {
     width: 85px;
@@ -712,6 +801,25 @@ li button {
   }
   #pricing {
     height: fit-content;
+  }
+  #mobileApp {
+    height: 70vh;
+  }
+  #mobileSection-logo {
+    width: 8rem;
+  }
+
+  .mobileSection-content h1 {
+    font-size: 4rem;
+  }
+  .notification-button {
+    gap: 0.5rem;
+    width: 20rem;
+    height: 3.5rem;
+    font-size: large;
+  }
+  #notification-icon {
+    width: 30px;
   }
   #testimonials {
     width: fit-content;
@@ -906,6 +1014,22 @@ li button {
   .plans_title-container {
     width: 380px;
     font-size: 0.8rem;
+  }
+  #mobileSection-logo {
+    width: 6rem;
+  }
+
+  .mobileSection-content h1 {
+    font-size: 4rem;
+  }
+  .notification-button {
+    gap: 0.5rem;
+    width: 20rem;
+    height: 3.5rem;
+    font-size: large;
+  }
+  #notification-icon {
+    width: 30px;
   }
   #testimonials {
     width: fit-content;
@@ -1146,6 +1270,52 @@ li button {
     height: 5vh;
     font-size: 0.6rem;
   }
+  #mobileApp {
+    position: relative;
+    width: 100vw;
+    height: 60vh;
+    margin: 2rem 0;
+  }
+
+  .mobileApp-background {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    object-fit: fill;
+    aspect-ratio: 1/1;
+    z-index: 1;
+  }
+  .mobileSection-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: none;
+    z-index: 2;
+  }
+  #mobileSection-logo {
+    width: 4rem;
+  }
+
+  .mobileSection-content h1 {
+    font-family: "Londrina Outline";
+    font-size: 3rem;
+    color: #fff;
+  }
+  .notification-button {
+    padding: 10px;
+    width: 14rem;
+    height: 2.8rem;
+    font-size: medium;
+  }
+  #notification-icon {
+    width: 25px;
+  }
+
   #testimonials {
     width: fit-content;
     height: fit-content;
