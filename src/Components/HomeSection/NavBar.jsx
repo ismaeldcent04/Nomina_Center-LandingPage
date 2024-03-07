@@ -1,7 +1,19 @@
 import React, { useState } from "react";
 import logo from "../../assets/LOGO NOMINA CENTER (.com).png";
+
+import { useNavigate } from "react-router-dom";
 export default function NavBar() {
   const [openMenu, setOpenMenu] = useState(false);
+  const navigate = useNavigate();
+  // const [showModal, setShowModal] = useState(false);
+  // const handleOpenModal= ()=>{
+  //   setShowModal(true);
+  // }
+  // const handleCloseModal= ()=>{
+  //   setShowModal(false);
+  // }
+ const handleOpenLogin=()=> navigate("/login")
+
   const handleMenu = () => {
     setOpenMenu((prevValue) => !prevValue);
   };
@@ -33,12 +45,14 @@ export default function NavBar() {
             <a href="#testimonials">Testimonios</a>
           </li>
           <li>
-            <a className="button" href="">
+            <a onClick={handleOpenLogin} className="button"  target="_blank">
               Acceso clientes
             </a>
           </li>
         </ul>
       </nav>
+       {/* <LoginModal show={showModal} handleClose={handleCloseModal} /> */}
+      
     </div>
   );
 }

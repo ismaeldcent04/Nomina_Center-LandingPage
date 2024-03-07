@@ -1,28 +1,20 @@
-import { useState } from "react";
-import { HomeSection } from "./Components/HomeSection/HomeSection";
+
 import "../index.css";
-import { DescriptionSection } from "./Components/DescriptionSection/DescriptionSection";
-import { PricingSection } from "./Components/PricingSection/PricingSection";
-import { TestimonialSection } from "./Components/TestimonialSection/TestimonialSection";
-import { Footer } from "./Components/Footer/Footer";
-import { MobileAppSection } from "./Components/MobileAppSection/MobileAppSection";
+import { InfoPage } from "./Components/Pages/InfoPage";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { RegisterPage } from "./Components/Pages/RegisterPage";
+import { LoginPage } from "./Components/Pages/LoginPage";
 
 function App() {
   return (
     <>
-      <main>
-        {/* HOME SECTION */}
-        <HomeSection />
-        {/* DESCRIPTION SECTION  */}
-        <DescriptionSection />
-        {/* PRICING SECTION  */}
-        <PricingSection />
-        {/* {MOBILEAPP SECTION} */}
-        <MobileAppSection />
-        {/* TESTIMONIALS SECTION */}
-        <TestimonialSection />
-      </main>
-      <Footer />
+     <Router>
+      <Routes>
+        <Route path="/" element={<InfoPage/>}/>
+        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/register" element={<RegisterPage/>}/>
+      </Routes>
+     </Router>
     </>
   );
 }

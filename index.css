@@ -23,6 +23,7 @@ body {
   width: 100vw;
 }
 
+
 #home,
 a:active,
 a:visited,
@@ -35,6 +36,17 @@ a {
 
 li {
   list-style: none;
+}
+#register a, #login a{
+  color: black;
+  text-decoration: underline;
+}
+
+#register a:active, #login a:active{
+  color: #2768e5;
+}
+#register a:visited, #login a:visited{
+  color: #2768e5;
 }
 
 #navbar {
