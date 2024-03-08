@@ -1,23 +1,17 @@
-// const tedious = require('tedious')
+import axios from "axios";
 
-// const config = {
-//     server: 'sgsdb.com,48450',
-//     database: 'NominaCenterCom',
-//     userName: 'AdonisXV',
-//     password: 'Sgs123',
-//     options: {
-//       encrypt: true,
-//     },
-// };
+const axiosInstance = axios.create({
+    baseURL: "https://localhost:44334/api",
+    headers: {
+      "Content-Type": "application/json",
+    },
+});
 
-// const connection = new tedious.Connection(config)
-
-// connection.on('connect', (err) => {
-//   if (err) {
-//     console.error(err.message);
-//   } else {
-//     console.log('Conectado a la base de datos');
-//   }
-// });
-
-// export default connection
+ export const getTaxByRnc= async(id)=>{
+    try {
+      const response = await axiosInstance.get(`/TaxId/${id}`);
+      return response.data;   
+    } catch (error) {
+      console.log(error)
+    }
+ } 
