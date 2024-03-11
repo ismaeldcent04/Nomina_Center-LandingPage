@@ -22,15 +22,15 @@ export const testimonialsData = [
       "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
     image: personImg,
     name: "Maxwell Duran",
-    position: "Perico Owner",
+    position: "Analyst",
   },
   {
     id: 4,
     testimony:
       "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
     image: personImg,
-    name: "Mazarca",
-    position: "Joder Manager",
+    name: "James Richardson",
+    position: "Proyect Manager",
   },
   {
     id: 5,
