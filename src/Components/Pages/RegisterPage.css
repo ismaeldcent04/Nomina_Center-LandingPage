@@ -1,0 +1,11 @@
+:root{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    width: 100vw;
+    overflow-x: hidden;
+    font-family: "Jost", sans-serif;
+    background-image: url("../../assets/LoginPage.png");
+}

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { addEmpresas, addUser, getEmpresas, getTaxByRnc, getUsers } from "../../Services";
+import "./RegisterPage.css";
 // import connection from "../../Services";
 // import { Request } from "tedious";
 
@@ -24,8 +25,8 @@ export const RegisterPage = () => {
   const [nombre, setNombre] = useState();
   const [direccion, setDireccion] = useState();
   const [telefono, setTelefono] = useState();
-  const [password, setPassword] = useState();
-  const [cpassword, setCPassword] = useState();
+  const [password, setPassword] = useState("");
+  const [cpassword, setCPassword] = useState("");
   const [taxId, setTaxId] = useState();
   const [rncIsValid, setRncIsValid] = useState(true);
   const [emailIsValid, setEmailIsValid] = useState(true);
@@ -278,7 +279,7 @@ export const RegisterPage = () => {
         <div>
           <Link to={"/login"}>Registrado? Inicia sesión</Link>
         </div>
-        <input disabled={!cPasswordIsValid} type="submit" value={"Registrarse"}/>
+        <input disabled={(password != cpassword) || password?.length == 0|| cpassword?.length == 0} type="submit" value={"Registrarse"}/>
       </form>
     </div>
   );

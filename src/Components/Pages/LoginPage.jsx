@@ -1,8 +1,8 @@
 import { useRef, useState } from "react"
 import { Link } from "react-router-dom"
 import { getEmpresaByRnc, getEmpresas, getUserByEmail, updateUsuario } from "../../Services";
-
-
+import "./LoginPage.css";
+import logoimg from "../../assets/LOGO NOMINA CENTER (.com).png"
 export const LoginPage = ()=>{
 
     const rncRef = useRef();
@@ -40,36 +40,42 @@ export const LoginPage = ()=>{
             if(!errorMessage){
                 const updatedUser = await updateUsuario(checkedUserEmail.oid);
                 console.log(updatedUser);
-                window.location.href = "http://localhost:4412/AutoLogin.aspx?UserName=Admin&Password=&DataBase=NCEjemplo";
+                window.location.href = `http://localhost:4412/AutoLogin.aspx?UserName=Admin&Password=&DataBase=NC${empresa.rnc}`;
             }
            
         }else{
-            setLoginError("Usuario o contraseña incorrecta, por favor intente de nuevo con credenciales validas.")
+            setLoginError("Email o contraseña incorrecta, por favor intente de nuevo con credenciales validas.")
         }
     }
     return(
         <div id="login">
-            <h1>Login</h1>
-            <form onSubmit={handleLogin}>
+            <div className="login_form">
+              <div className="login_header">
+                <img src={logoimg} className="logo_img"/>    
+                <h1>Login</h1>
+              </div>
+             <form onSubmit={handleLogin}>
                 <div>
-                 <label>RNC/Cedula<input type="text" placeholder="Ingresa un RNC" onChange={handleRNC} ref={rncRef}/></label>
+                 <label><input type="text" placeholder="RNC/Cedula" onChange={handleRNC} ref={rncRef}/></label>
                  {errorMessage && <span>{errorMessage}</span>}
                 </div>
                 <div>
-                 <label>Razón Social<input type="text" disabled placeholder="Ingresa la razón social" onChange={handleRNC} value={razonS} /></label>
+                 <label><input type="text" disabled placeholder="Razón Social" onChange={handleRNC} value={razonS} /></label>
                 </div>
                 <div>
-                 <label>Email<input type="email" placeholder="Ingresa un email" onChange={handleEmail} value={email} /></label>
+                 <label><input type="email" placeholder="Email" onChange={handleEmail} value={email} /></label>
                 </div>
                 <div>
-                <label>Password <input type="password" placeholder="Ingresa una Contraseña" onChange={handlePassword} value={password}/></label>
+                <label> <input type="password" placeholder="Password" onChange={handlePassword} value={password}/></label>
                 </div>
                 <Link to={"/register"}>Sin usuario? Registrate!</Link>
                 <div>
-                <input type="submit" value={"Iniciar Sesión"}/>
+                <label><input type="submit" value={"Iniciar Sesión"}/></label> 
+                {loginError && <span>{loginError}</span>}   
                 </div>
-                {loginError && <span>{loginError}</span>}
-            </form>
+                
+             </form>
+            </div>
         </div>
     )
 }
