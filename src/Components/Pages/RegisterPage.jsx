@@ -2,19 +2,20 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { addEmpresas, addUser, getEmpresas, getTaxByRnc, getUsers } from "../../Services";
 import "./RegisterPage.css";
+import logoimg from "../../assets/LOGO NOMINA CENTER (.com).png"
+import generatePassword from "../../helpers/generatePassword";
+import { sendEmail } from "../../helpers/sendEmail";
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import PeopleOutlineOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined';
 // import connection from "../../Services";
 // import { Request } from "tedious";
 
 export const RegisterPage = () => {
-  // const [newUser,setNewUser] = useState({
-  //     rnc:"",
-  //     razonS:"",
-  //     direccion:"",
-  //     telefono:"",
-  //     login:"Admin",
-  //     password:"",
-  //     cpassword:"",
-  // });
+
   const rncRef = useRef();
   const razonSRef = useRef();
   const direccionRef = useRef();
@@ -25,13 +26,13 @@ export const RegisterPage = () => {
   const [nombre, setNombre] = useState();
   const [direccion, setDireccion] = useState();
   const [telefono, setTelefono] = useState();
-  const [password, setPassword] = useState("");
-  const [cpassword, setCPassword] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [cpassword, setCPassword] = useState("");
   const [taxId, setTaxId] = useState();
   const [rncIsValid, setRncIsValid] = useState(true);
-  const [emailIsValid, setEmailIsValid] = useState(true);
-  const [passwordIsValid, setPasswordIsValid] = useState(true);
-  const [cPasswordIsValid, setCPasswordIsValid] = useState(true);
+  const [emailValidationMessage, setEmailValidationMessage] = useState(null);
+  // const [passwordIsValid, setPasswordIsValid] = useState(true);
+  // const [cPasswordIsValid, setCPasswordIsValid] = useState(true);
   // useEffect(() => {
   //   (async () => {
   //     const tax = await getTaxByRnc(rncRef.current.value);
@@ -40,13 +41,14 @@ export const RegisterPage = () => {
   // }, [rnc]);
 
   const handleRnc = async(e) => {
-    const tax = await getTaxByRnc(rncRef.current.value);
-    const empresas = await getEmpresas();
-    console.log(tax);
-    setTaxId(tax);
+    // const tax = await getTaxByRnc(rncRef.current.value);
     setRnc(e.target.value);
+   
+    const tax = await getTaxByRnc(e.target.value || null );
+    const empresas = await getEmpresas();
+    console.log("si entro");
 
-    razonSRef.current.value = tax?.titular;
+    razonSRef.current.value = tax?.titular || null;
 
     direccionRef.current.value =
       tax?.dir1 == undefined || tax?.dir1 == "" ? "" : tax.dir1;
@@ -55,18 +57,18 @@ export const RegisterPage = () => {
       tax?.telefono == undefined || tax?.telefono == ""
         ? "" : tax.telefono;
 
-    const empresaRnc = empresas.find(empresa=> empresa.rnc === rncRef.current.value); 
+    const empresaRnc = empresas.find(empresa=> empresa.rnc === e.target.value); 
 
     if (!tax || empresaRnc) {
       setRncIsValid(false);
      
-    } else if(rncRef.current.value == null){
-      razonSRef.current.value = "";
+    } else if(e.target.value.length <= 0 ){
+      setRncIsValid(false);
     }
     else{
       setRncIsValid(true);
     }
-      
+ 
     
   };
 
@@ -76,11 +78,15 @@ export const RegisterPage = () => {
     const checkedUser = users.find(user=> user.email == e.target.value);
     console.log(users);
     console.log(checkedUser);
-    if(!checkedUser){
-      setEmailIsValid(true);
+    if(!checkedUser && e.target.value.length > 0){
+      setEmailValidationMessage(null);
+      console.log("si entro");
+    }
+    else if(e.target.value.length <= 0){
+      setEmailValidationMessage("Email no valido.")
     }
     else{
-      setEmailIsValid(false);
+      setEmailValidationMessage("Email ya asignado a un usuario, por favor intente con otro email.");
     }
     
   }
@@ -94,29 +100,44 @@ export const RegisterPage = () => {
   const handletelefono = (e) => {
     setTelefono(e.target.value);
   };
-  const handlepassword = (e) => {
-    if(e.target.value.length < 6){
-      setPasswordIsValid(false);
-    } else{
-      setPasswordIsValid(true);
-    }
-    setPassword(e.target.value);
-  };
+  // const handlepassword = (e) => {
+  //   if(e.target.value.length < 6){
+  //     setPasswordIsValid(false);
+  //   } else{
+  //     setPasswordIsValid(true);
+  //   }
+  //   setPassword(e.target.value);
+  // };
 
-  const handleCpassword = (e) => {
-    if(password != e.target.value){
-      setCPasswordIsValid(false);
-    }
-    else{
-      setCPasswordIsValid(true);
-    }
-    setCPassword(e.target.value);
-  };
+  // const handleCpassword = (e) => {
+  //   if(password != e.target.value){
+  //     setCPasswordIsValid(false);
+  //   }
+  //   else{
+  //     setCPasswordIsValid(true);
+  //   }
+  //   setCPassword(e.target.value);
+  // };
   const handleNewUser = () => {};
 
   const handleSubmit = async(e) => {
     e.preventDefault();
     console.log("Click");
+    
+    const password = generatePassword(10);
+    // const emailSettings = {
+    //   service_id: 'service_02i1sr1',
+    //   template_id: 'template_srygbto',
+     
+    //   template_params: {
+    //       email: email,
+    //       to_name:nombre,
+    //       message: `Tu password temporal para ingresar a NominaCenter es: ${password}`,
+    //       reply_to:'idicent@sergioguzmansoft'
+    //   },
+    //   public_key: 'sQhZDnAo-9X3JUjqg',
+    // }
+    
     const empresa = {
       rnc: rncRef.current.value,
       razonSocial: razonSRef.current.value,
@@ -136,7 +157,7 @@ export const RegisterPage = () => {
       ultimoLogin:null
     }
 
-    if(rncIsValid && emailIsValid && passwordIsValid && cPasswordIsValid){
+    if(rncIsValid && !emailValidationMessage){
       try {
         const newEmpresa = await addEmpresas(empresa);
         console.log(newEmpresa);
@@ -147,9 +168,10 @@ export const RegisterPage = () => {
           setNombre("");
           setDireccion("");
           setTelefono("");
-          setPassword("");
-          setCPassword("");
         });
+
+        sendEmail(nombre, password, email);
+
         console.log(newUser);
       } catch (error) {
         console.log(error);
@@ -162,91 +184,100 @@ export const RegisterPage = () => {
 
   return (
     <div id="register">
+      <div className="register_form">
+      <div className="register_header">
+        <img src={logoimg}  className="logo_img"/>
       <h1>Registro</h1>
+      </div>
       <form onSubmit={handleSubmit}>
         <div>
           <label>
-            RNC/Cedula
             <input
               name="rnc"
               type="text"
-              placeholder="Ingresa tu RNC"
+              placeholder="RNC/Cédula"
               ref={rncRef}
+              value={rnc || ""}
               onChange={handleRnc}
+              className="rnc_input"
               required
             />
-            {!rncIsValid && (
-              <span>RNC no existente o ya asignado, por favor ingresa un RNC valido.</span>
-            )}
+            <PersonOutlineOutlinedIcon className="icon"/>
           </label>
         </div>
+        {!rncIsValid && (
+              <span>RNC no existente o ya asignado, por favor ingresa un RNC valido.</span>
+            )}
         <div>
           <label>
-            Razón Social{" "}
             <input
               name="razonS"
-              type="texto"
-              placeholder="Ingresa una Razon Social"
+              type="text"
+              placeholder="Razón Social"
               ref={razonSRef}
               disabled
               onChange={handleNewUser}
+              className="rsocial_input"
             />
+            <PeopleOutlineOutlinedIcon className="icon"/>
           </label>
         </div>
         <div>
           <label>
-            Email{" "}
             <input
               name="email"
               type="email"
-              placeholder="example@mail.com"
+              placeholder="Email"
               value={email}
               onChange={handleEmail}
+              className="email_input"
               required
             />
+            <EmailOutlinedIcon className="icon"/>
           </label>
-          {!emailIsValid && <span>Email ya asignado a un usuario, por favor intente con otro email.</span>}
+          {emailValidationMessage && <span>{emailValidationMessage}</span>}
         </div>
         <div>
           <label>
-            Nombre
             <input
               name="nombre"
               type="text"
-              placeholder="Ingrese un nombre"
+              placeholder="Nombre"
               value={nombre}
+              className="input_nombre"
               onChange={handleNombre}
             />
+            <BadgeOutlinedIcon className="icon"/>
           </label>
         </div>
         <div>
           <label>
-            Dirección{" "}
             <input
               name="direccion"
               type="texto"
-              placeholder="Ingresa una dirección"
+              placeholder="Dirección"
               value={direccion}
               onChange={handledireccion}
               ref={direccionRef}
             />
+            <LocationOnOutlinedIcon className="icon"/>
           </label>
         </div>
         <div>
           <label>
-            Teléfono{" "}
             <input
               name="telefono"
               type="texto"
-              placeholder="Ingresa un teléfono"
+              placeholder="Teléfono"
               value={telefono}
               onChange={handletelefono}
               ref={telefonoRef}
             />
+            <PhoneOutlinedIcon className="icon"/>
           </label>
         </div>
 
-        <div>
+        {/* <div>
           <label>
             Password
             <input
@@ -275,12 +306,15 @@ export const RegisterPage = () => {
             />
           </label>
           {!cPasswordIsValid && <span>Confirmar Password debe ser igual a Password.</span>}
-        </div>
+            </div>*/}
         <div>
-          <Link to={"/login"}>Registrado? Inicia sesión</Link>
+          <Link to={"/login"}><p className="login_redirect">Registrado? Inicia sesión</p></Link>
+        </div> 
+        <div className="submit_container">
+        <input disabled={!(!emailValidationMessage && rncIsValid) }  type="submit" value={"Registrarse"}/>
         </div>
-        <input disabled={(password != cpassword) || password?.length == 0|| cpassword?.length == 0} type="submit" value={"Registrarse"}/>
       </form>
+      </div>
     </div>
   );
 };

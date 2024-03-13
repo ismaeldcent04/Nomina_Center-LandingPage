@@ -4,7 +4,7 @@ import { HomeSection } from "../HomeSection/HomeSection"
 import { MobileAppSection } from "../MobileAppSection/MobileAppSection"
 import { PricingSection } from "../PricingSection/PricingSection"
 import { TestimonialSection } from "../TestimonialSection/TestimonialSection"
-
+import "../../../index.css"
 
 export const InfoPage = ()=>{
     return (

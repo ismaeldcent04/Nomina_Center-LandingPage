@@ -5,11 +5,7 @@
 body{
     margin: 0;
     width: 100vw;
-
-    overflow-x: hidden;
     font-family: "Jost", sans-serif;
-    background-image: url("../../assets/LoginPage.png");
-    
 }
 #login{
     width: 100%;
@@ -17,14 +13,20 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url("../../assets/LoginPage.png");
+}
+
+label{
+    position: relative;
 }
 
 .login_form{
     padding-top:10px ;
     background-color: white;
-    width: 400px;
-    height: 580px;
+    width: 450px;
+    height: fit-content;
     border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .login_form h1{
@@ -46,36 +48,65 @@ body{
     width: 80%;
     margin: 0 auto;
 }
-
+input:disabled{
+    background-color: rgba(39, 104, 229, 0.09);
+}
 
 .login_form input{
-    padding-left:5px;
+    padding-left:8px;
     width: 100%;
     height: 40px;
     margin-bottom: 20px;
-    border: 3px solid #D9D9D9; 
+    border: 2px solid #D9D9D9; 
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
 }
+.rnc_input{
+   margin: 0!important;
+}
+.rsocial_input{
+    margin-top: 20px;
+}
 
 .login_form input::placeholder{
-    position: relative;
+    
     color: #8B8D95;
-    left: 50px;
+    
 }
 .login_form input[type="submit"]{
     border: none;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     width: 103.5%;
     height: 50px;
     color: white;
     background-color: #2768E5;
 }
 
+.submit_container{
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.redirect_register{
+    margin: 0 auto 20px auto;
+    
+}
+
+
 .login_form span{
     width: 100%;
     color: red;
     font-size: smaller;
+    padding-left: 2px;
 }
 
+.icon{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: #B7B7B7
+}
+.password_icon{
+    color: black;
+}
