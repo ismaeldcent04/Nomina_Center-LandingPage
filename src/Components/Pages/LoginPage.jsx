@@ -8,6 +8,8 @@ import PeopleOutlineOutlinedIcon from '@mui/icons-material/PeopleOutlineOutlined
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import { CircularProgress, Skeleton } from "@mui/material";
+import { AppIframePage } from "./AppIframePage";
 export const LoginPage = ()=>{
 
     const rncRef = useRef();
@@ -18,6 +20,10 @@ export const LoginPage = ()=>{
     const [errorMessage, setErrorMessage] = useState(null);
     const [loginError, setLoginError] = useState(null);
     const [passwordIsVisible, setPassworIsVisible] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [loadingIframe, setLoadingIframe] = useState(false);
+    const [isLoading, setIsloading] = useState(undefined);
+    const [url, setUrl]=useState("");
     const handleRNC = async(e)=>{
         const empresa = await getEmpresaByRnc(rncRef.current.value);
         if(empresa == null){
@@ -42,25 +48,35 @@ export const LoginPage = ()=>{
     const handleLogin = async(e)=>{
         e.preventDefault();
         const checkedUserEmail = await getUserByEmail(email);
+        setIsloading(true);
+        console.log(checkedUserEmail);
         if(checkedUserEmail && checkedUserEmail.empresa == empresa.oid && password == checkedUserEmail.password){
             if(!errorMessage){
-                
-                const isNew = false;
-
+                const isNew = checkedUserEmail.ultimoLogin? false: true;
+                console.log(isNew);
                 const updatedUser = await updateUsuario(checkedUserEmail.oid);
-                console.log(updatedUser);
-                window.location.href = `http://localhost:4412/AutoLogin.aspx?UserName=Admin&Password=${checkedUserEmail.password}&IsNew=${isNew}&DataBase=NC${empresa.rnc}`;
+                setIsAuthenticated(true);
+                setUrl(`http://localhost:4412/AutoLogin.aspx?UserName=${email}&Password=${checkedUserEmail.password}&IsNewBusiness=${isNew}&DataBase=NC${empresa.rnc}`)
+                // window.location.href = `http://localhost:4412/AutoLogin.aspx?UserName=${email}&Password=${checkedUserEmail.password}&IsNewBusiness=${isNew}&DataBase=NC${empresa.rnc}`;
+              
             }
            
         }else{
-            setLoginError("Email o contraseña incorrecta, por favor intente de nuevo con credenciales validas.")
+            setLoginError("Email o contraseña incorrecta, por favor intente de nuevo con credenciales validas.");
+            setIsAuthenticated(false)
         }
     }
 
     const handlePasswordVisibility=()=>{
         setPassworIsVisible(prevValue=> !prevValue)
     }
-    return(
+
+    const handleLoadingIframe = ()=>{
+        console.log("prueba")
+        setIsloading(false);
+        setLoadingIframe(true);
+    }
+    return isAuthenticated? <AppIframePage handleLoadingIframe={handleLoadingIframe} url={url}/>:(
         <div id="login">
             <div className="login_form">
               <div className="login_header">
@@ -69,21 +85,21 @@ export const LoginPage = ()=>{
               </div>
              <form onSubmit={handleLogin}>
                 <div >
-                 <label><input type="text" className="rnc_input" placeholder="RNC/Cedula" onChange={handleRNC} ref={rncRef}/><PersonOutlineOutlinedIcon className="icon"/></label>
+                 <label><input disabled={isLoading} type="text" className="rnc_input" placeholder="RNC/Cedula" onChange={handleRNC} ref={rncRef}/><PersonOutlineOutlinedIcon className="icon"/></label>
                 </div>
                 {errorMessage && <span>{errorMessage}</span>}
                 <div>
                  <label><input type="text" disabled placeholder="Razón Social" className="rsocial_input" onChange={handleRNC} value={razonS} /><PeopleOutlineOutlinedIcon className="icon"/></label>
                 </div>
                 <div>
-                 <label><input type="email" placeholder="Email" onChange={handleEmail} value={email} /><EmailOutlinedIcon className="icon"/></label>
+                 <label><input  disabled={isLoading} type="email" placeholder="Email" onChange={handleEmail} value={email} /><EmailOutlinedIcon className="icon"/></label>
                 </div>
                 <div>
-                <label> <input type={passwordIsVisible?"text":"password"} placeholder="Password" onChange={handlePassword} value={password}/>{!passwordIsVisible?<VisibilityOffOutlinedIcon onClick={handlePasswordVisibility} className="icon password_icon"/>: <VisibilityOutlinedIcon onClick={handlePasswordVisibility} className="icon password_icon"/>}</label>
+                <label> <input  disabled={isLoading} type={passwordIsVisible?"text":"password"} placeholder="Password" onChange={handlePassword} value={password}/>{!passwordIsVisible?<VisibilityOffOutlinedIcon onClick={handlePasswordVisibility} className="icon password_icon"/>: <VisibilityOutlinedIcon onClick={handlePasswordVisibility} className="icon password_icon"/>}</label>
                 </div>
                 <Link to={"/register"}><p className="redirect_register">Sin usuario? Registrate!</p></Link>
                 <div className="submit_container">
-                <label><input type="submit" value={"Iniciar Sesión"}/></label> 
+                <label><button  disabled={isLoading} type="submit">{isLoading?<CircularProgress className="spinner"/>:"Iniciar Sesión"}</button></label> 
                 {loginError && <span>{loginError}</span>}   
                 </div>
                 

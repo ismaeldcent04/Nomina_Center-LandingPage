@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { addEmpresas, addUser, getEmpresas, getTaxByRnc, getUsers } from "../../Services";
+import { addEmpresas, addUser, getEmpresas, getTaxByRnc, getUsers, updateUsuario } from "../../Services";
 import "./RegisterPage.css";
 import logoimg from "../../assets/LOGO NOMINA CENTER (.com).png"
 import generatePassword from "../../helpers/generatePassword";
@@ -159,9 +159,11 @@ export const RegisterPage = () => {
 
     if(rncIsValid && !emailValidationMessage){
       try {
+        const isNew = true;
         const newEmpresa = await addEmpresas(empresa);
         console.log(newEmpresa);
-        const newUser = await addUser({...user, empresa:newEmpresa.oid}).then(()=>{
+        const newUser = await addUser({...user, empresa:newEmpresa.oid}).then(async(data)=>{
+          // await updateUsuario(data.oid);
           rncRef.current.value ="";
           razonSRef.current.value = "";
           setEmail("");
@@ -170,9 +172,10 @@ export const RegisterPage = () => {
           setTelefono("");
         });
 
-        sendEmail(nombre, password, email);
-
-        console.log(newUser);
+       
+        // sendEmail(nombre, password, email);
+        // window.location.href = `http://localhost:4412/AutoLogin.aspx?UserName=${email}&Password=${password}&IsNewBusiness=${isNew}&DataBase=NC${empresa.rnc}`;
+      
       } catch (error) {
         console.log(error);
       }

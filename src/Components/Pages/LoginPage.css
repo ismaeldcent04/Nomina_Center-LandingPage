@@ -74,13 +74,18 @@ input:disabled{
     color: #8B8D95;
     
 }
-.login_form input[type="submit"]{
+.login_form button[type="submit"]{
     border: none;
     margin-bottom: 15px;
     width: 103.5%;
     height: 50px;
     color: white;
     background-color: #2768E5;
+}
+
+.login_form button[type="submit"]:active{
+    background-color: blue;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .submit_container{
@@ -109,4 +114,13 @@ input:disabled{
 }
 .password_icon{
     color: black;
+}
+
+#iframe_container{
+    width: 100vw;
+    height: 100vh;
+}
+
+.spinner{
+    color: white !important;
 }
