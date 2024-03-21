@@ -8,7 +8,7 @@ body {
   margin: 0;
   width: 100vw;
   overflow-x: hidden;
-  font-family: "Jost", sans-serif;
+  font-family: "Jost", sans-serif !important;
 }
 @media (prefers-reduced-motion: no-preference) {
   * {
@@ -57,6 +57,7 @@ li {
   /* gap: 30%;
   margin-right: 2%; */
   z-index: 1;
+  padding-top: 10px;
 }
 
 .logo {
@@ -64,7 +65,13 @@ li {
   gap: 1rem;
   align-items: center;
   margin-left: 8%;
-  font-size: 0.8rem;
+  font-size: 1rem !important;
+}
+
+.logo h1{
+  font-size: 1.5rem;
+  font-family: "Jost";
+  font-weight: bold;
 }
 
 h1 span {
@@ -119,7 +126,6 @@ h1 span {
   align-items: center;
 }
 .button,
-button,
 li button {
   background-color: #2768e5;
   color: white;
@@ -199,11 +205,16 @@ li button {
 
 .feature .title {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 1rem;
 }
 .feature img {
   width: max(50px, 4vw);
+}
+
+.title h3{
+  font-size: larger;
+  font-weight: bold;
 }
 
 /* Description Section */
@@ -228,6 +239,9 @@ li button {
   padding-left: 2%;
   margin-top: 10%;
   position: relative;
+}
+.description_info-text h2{
+  font-size: x-large;
 }
 .description_info-text span {
   color: #2768e5;

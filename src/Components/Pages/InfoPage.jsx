@@ -5,13 +5,14 @@ import { MobileAppSection } from "../MobileAppSection/MobileAppSection"
 import { PricingSection } from "../PricingSection/PricingSection"
 import { TestimonialSection } from "../TestimonialSection/TestimonialSection"
 import "../../../index.css"
+import { LoadingModal } from "../UI/LoadingModal"
 
 export const InfoPage = ()=>{
     return (
-    <>
+    <div className="animate__backInLeft">
         <main>
-            {/* HOME SECTION */}
             
+            {/* HOME SECTION */}
             <HomeSection />
             {/* DESCRIPTION SECTION  */}
             <DescriptionSection />
@@ -23,6 +24,6 @@ export const InfoPage = ()=>{
             <TestimonialSection />
         </main>
         <Footer />
-      </>
+      </div>
     )
 }

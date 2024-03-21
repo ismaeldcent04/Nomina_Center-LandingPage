@@ -32,7 +32,7 @@ export const PricingCards = () => {
             Access on all devices
           </li>
         </ul>
-        <button>FREE TRIAL</button>
+        <button className="button">FREE TRIAL</button>
       </div>
       <div className="pricing_card middle">
         <div>
@@ -60,7 +60,7 @@ export const PricingCards = () => {
             Access on all devices
           </li>
         </ul>
-        <button>FREE TRIAL</button>
+        <button className="button">FREE TRIAL</button>
       </div>
       <div className="pricing_card right">
         <div>
@@ -88,7 +88,7 @@ export const PricingCards = () => {
             Access on all devices
           </li>
         </ul>
-        <button>FREE TRIAL</button>
+        <button className="button">FREE TRIAL</button>
       </div>
     </div>
   );

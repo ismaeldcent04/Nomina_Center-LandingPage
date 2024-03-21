@@ -26,22 +26,11 @@ export const RegisterPage = () => {
   const [nombre, setNombre] = useState();
   const [direccion, setDireccion] = useState();
   const [telefono, setTelefono] = useState();
-  // const [password, setPassword] = useState("");
-  // const [cpassword, setCPassword] = useState("");
   const [taxId, setTaxId] = useState();
   const [rncIsValid, setRncIsValid] = useState(true);
   const [emailValidationMessage, setEmailValidationMessage] = useState(null);
-  // const [passwordIsValid, setPasswordIsValid] = useState(true);
-  // const [cPasswordIsValid, setCPasswordIsValid] = useState(true);
-  // useEffect(() => {
-  //   (async () => {
-  //     const tax = await getTaxByRnc(rncRef.current.value);
-  //     setTaxId(tax);
-  //   })();
-  // }, [rnc]);
-
+  
   const handleRnc = async(e) => {
-    // const tax = await getTaxByRnc(rncRef.current.value);
     setRnc(e.target.value);
    
     const tax = await getTaxByRnc(e.target.value || null );
@@ -100,43 +89,13 @@ export const RegisterPage = () => {
   const handletelefono = (e) => {
     setTelefono(e.target.value);
   };
-  // const handlepassword = (e) => {
-  //   if(e.target.value.length < 6){
-  //     setPasswordIsValid(false);
-  //   } else{
-  //     setPasswordIsValid(true);
-  //   }
-  //   setPassword(e.target.value);
-  // };
-
-  // const handleCpassword = (e) => {
-  //   if(password != e.target.value){
-  //     setCPasswordIsValid(false);
-  //   }
-  //   else{
-  //     setCPasswordIsValid(true);
-  //   }
-  //   setCPassword(e.target.value);
-  // };
-  const handleNewUser = () => {};
+ 
 
   const handleSubmit = async(e) => {
     e.preventDefault();
     console.log("Click");
     
     const password = generatePassword(10);
-    // const emailSettings = {
-    //   service_id: 'service_02i1sr1',
-    //   template_id: 'template_srygbto',
-     
-    //   template_params: {
-    //       email: email,
-    //       to_name:nombre,
-    //       message: `Tu password temporal para ingresar a NominaCenter es: ${password}`,
-    //       reply_to:'idicent@sergioguzmansoft'
-    //   },
-    //   public_key: 'sQhZDnAo-9X3JUjqg',
-    // }
     
     const empresa = {
       rnc: rncRef.current.value,
@@ -148,34 +107,16 @@ export const RegisterPage = () => {
       estado: 0,
       confirmado: true,
     }
-    const user = {
-      email: email,
-      telefono: telefonoRef.current.value,
-      password: password,
-      nombre: nombre,
-      admin:true,
-      ultimoLogin:null
-    }
+   
 
     if(rncIsValid && !emailValidationMessage){
       try {
         const isNew = true;
         const newEmpresa = await addEmpresas(empresa);
+        
         console.log(newEmpresa);
-        const newUser = await addUser({...user, empresa:newEmpresa.oid}).then(async(data)=>{
-          // await updateUsuario(data.oid);
-          rncRef.current.value ="";
-          razonSRef.current.value = "";
-          setEmail("");
-          setNombre("");
-          setDireccion("");
-          setTelefono("");
-        });
-
-       
         // sendEmail(nombre, password, email);
-        // window.location.href = `http://localhost:4412/AutoLogin.aspx?UserName=${email}&Password=${password}&IsNewBusiness=${isNew}&DataBase=NC${empresa.rnc}`;
-      
+        
       } catch (error) {
         console.log(error);
       }
@@ -219,7 +160,6 @@ export const RegisterPage = () => {
               placeholder="Razón Social"
               ref={razonSRef}
               disabled
-              onChange={handleNewUser}
               className="rsocial_input"
             />
             <PeopleOutlineOutlinedIcon className="icon"/>
@@ -279,37 +219,6 @@ export const RegisterPage = () => {
             <PhoneOutlinedIcon className="icon"/>
           </label>
         </div>
-
-        {/* <div>
-          <label>
-            Password
-            <input
-              name="password"
-              type="password"
-              placeholder="Ingrese una contraseña"
-              value={password}
-              onChange={handlepassword}
-              minLength={6}
-              required
-            />
-          </label>
-          {!passwordIsValid && <span>La contraseña debe ser de al menos 6 caracteres</span>}
-        </div>
-        <div>
-          <label>
-            Confirmar Password
-            <input
-              name="cpassword"
-              type="password"
-              placeholder="Ingrese su contraseña"
-              value={cpassword}
-              onChange={handleCpassword}
-              required
-              
-            />
-          </label>
-          {!cPasswordIsValid && <span>Confirmar Password debe ser igual a Password.</span>}
-            </div>*/}
         <div>
           <Link to={"/login"}><p className="login_redirect">Registrado? Inicia sesión</p></Link>
         </div> 

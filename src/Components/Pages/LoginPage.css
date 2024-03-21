@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 
+
 body{
     margin: 0;
     width: 100vw;
@@ -99,7 +100,7 @@ input:disabled{
 }
 
 
-.login_form span{
+.validation_error{
     width: 100%;
     color: red;
     font-size: smaller;
@@ -108,12 +109,12 @@ input:disabled{
 
 .icon{
     position: absolute;
-    top: 0;
+    top: 5px!important;
     right: 10px;
     color: #B7B7B7
 }
 .password_icon{
-    color: black;
+    color: black!important;
 }
 
 #iframe_container{
@@ -123,4 +124,24 @@ input:disabled{
 
 .spinner{
     color: white !important;
+}
+
+.redirect-link{
+    text-decoration: underline;
+}
+
+.submit-button{
+    border: none;
+    margin-top: 10px;
+    width: 100%;
+    height: 45px;
+    color: white;
+    background-color: #2768E5;
+}
+
+.password_input_container{
+    position: relative;
+}
+.loading_spinner{
+    margin: 0 auto!important;
 }

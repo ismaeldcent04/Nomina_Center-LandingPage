@@ -1,6 +1,6 @@
 import { useContext, useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { getEmpresaByRnc, getEmpresas, getUserByEmail, updateUsuario } from "../../Services";
+import { authenticateUser, getEmpresaByRnc, getEmpresas, getUserByEmail, updateUsuario } from "../../Services";
 import "./LoginPage.css";
 import logoimg from "../../assets/LOGO NOMINA CENTER (.com).png"
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
@@ -13,7 +13,7 @@ import { AppIframePage } from "./AppIframePage";
 import { AppContext } from "../Context/AppContext";
 export const LoginPage = ()=>{
     const {setNCUrl} = useContext(AppContext);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const rncRef = useRef();
     const iframeRef = useRef();
     const [rnc, setRnc] = useState();
@@ -50,22 +50,22 @@ export const LoginPage = ()=>{
 
     const handleLogin = async(e)=>{
         e.preventDefault();
-        const checkedUserEmail = await getUserByEmail(email);
+        // const checkedUserEmail = await getUserByEmail(email);
+        const credentials = {
+            username:email, 
+            taxID:rncRef.current.value, 
+            password:password
+        }
+        const response = await authenticateUser(credentials);
+        console.log(response);
         setIsloading(true);
-        // console.log(checkedUserEmail);
-        if(checkedUserEmail && checkedUserEmail.empresa == empresa.oid && password == checkedUserEmail.password){
-            if(!errorMessage){
-                const isNew = checkedUserEmail.ultimoLogin? false: true;
-                // console.log(isNew);
-                const updatedUser = await updateUsuario(checkedUserEmail.oid);
-                setIsAuthenticated(true);
-                setUrl(`http://localhost:4412/AutoLogin.aspx?UserName=${email}&Password=i${checkedUserEmail.password}&IsNewBusiness=${isNew}&DataBase=NC${empresa.rnc}`)
-                setNCUrl(`http://localhost:4412/AutoLogin.aspx?UserName=${email}&Password=i${checkedUserEmail.password}&IsNewBusiness=${isNew}&DataBase=NC${empresa.rnc}`)
-                // window.location.href = `http://localhost:4412/AutoLogin.aspx?UserName=${email}&Password=${checkedUserEmail.password}&IsNewBusiness=${isNew}&DataBase=NC${empresa.rnc}`;
-                navigate("/App");
-            }
-           
-        }else{
+        if(response?.url){
+            setIsAuthenticated(true);
+            setUrl(response.url)
+            setNCUrl(response.url);
+            window.location.href = response.url;
+        }
+        else{
             setLoginError("Email o contraseña incorrecta, por favor intente de nuevo con credenciales validas.");
             setIsAuthenticated(false)
             setIsloading(false);
@@ -75,25 +75,6 @@ export const LoginPage = ()=>{
     const handlePasswordVisibility=()=>{
         setPassworIsVisible(prevValue=> !prevValue)
     }
-
-    // const handleLoadingIframe = ()=>{
-    //     const iframe = document.getElementById("app_iframe");
-    //     console.log(iframeRef.current?.id);
-    //     console.log(iframeRef.current?.contentWindow);
-    //     console.log(iframe.contentWindow);
-    //     // console.log(iframe.contentDocument, iframe.contentWindow);
-    //     // var contentIframe = iframe.contentDocument || iframe.contentWindow.document;
-    //     // var contentHtml = contentIframe.documentElement.innerHTML;
-    //     // console.log(contentHtml);
-    //     //si no hay ningun errror en la captura
-    //     //TODO: filtrar error : redireccionar al sistema.
-    //     // console.log(iframe.contentWindow.document);
-    //     setIsloading(false);
-    //     setLoadingIframe(true);
-    //     // console.log(iframeRef.current.contentWindow.getElementById("ErrorPanel"));
-    // }
-
-   
 
     return (
         <div id="login">

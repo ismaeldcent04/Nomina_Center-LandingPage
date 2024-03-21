@@ -2,17 +2,30 @@ import React, { useState } from "react";
 import logo from "../../assets/LOGO NOMINA CENTER (.com).png";
 
 import { useNavigate } from "react-router-dom";
+import LoginModal from "../UI/LoginModal";
+import RegisterModal from "../UI/RegisterModal";
 export default function NavBar() {
   const [openMenu, setOpenMenu] = useState(false);
-  const navigate = useNavigate();
-  // const [showModal, setShowModal] = useState(false);
-  // const handleOpenModal= ()=>{
-  //   setShowModal(true);
-  // }
-  // const handleCloseModal= ()=>{
-  //   setShowModal(false);
-  // }
- const handleOpenLogin=()=> navigate("/login")
+  // const navigate = useNavigate();
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
+  const handleOpenLoginModal= ()=>{
+    setShowLoginModal(true);
+    setShowRegisterModal(false);
+  }
+  const handleCloseLoginModal= ()=>{
+    setShowLoginModal(false);
+  }
+
+  const handleOpenRegisterModal=()=>{
+    setShowRegisterModal(true);
+    setShowLoginModal(false);
+  }
+
+  const handleCloseRegisterModal =()=>{
+    setShowRegisterModal(false);
+  }
+//  const handleOpenLogin=()=> navigate("/login")
 
   const handleMenu = () => {
     setOpenMenu((prevValue) => !prevValue);
@@ -45,14 +58,14 @@ export default function NavBar() {
             <a href="#testimonials">Testimonios</a>
           </li>
           <li>
-            <a onClick={handleOpenLogin} className="button"  target="_blank">
+            <a onClick={handleOpenLoginModal} className="button"  target="_blank">
               Acceso clientes
             </a>
           </li>
         </ul>
       </nav>
-       {/* <LoginModal show={showModal} handleClose={handleCloseModal} /> */}
-      
+       <LoginModal show={showLoginModal} handleClose={handleCloseLoginModal} handleOpenRegister={handleOpenRegisterModal} /> 
+       <RegisterModal show={showRegisterModal} handleClose={handleCloseRegisterModal} handleOpenLogin={handleOpenLoginModal}/>
     </div>
   );
 }

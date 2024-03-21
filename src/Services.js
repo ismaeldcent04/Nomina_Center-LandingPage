@@ -75,3 +75,13 @@ const axiosInstance = axios.create({
     console.log(error)
   }
  }
+
+ export const authenticateUser = async(authData)=>{
+  try{
+    const response = await axiosInstance.post("/Authentication/Authenticate",authData );
+    return response.data;
+  }
+  catch(error){
+    console.log(error);
+  }
+ }

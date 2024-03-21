@@ -90,7 +90,7 @@ input:disabled{
     margin-bottom: 10px;
 }
 
-.register_form span{
+.validation_error{
     width: 100%;
     color: red;
     font-size: smaller;
