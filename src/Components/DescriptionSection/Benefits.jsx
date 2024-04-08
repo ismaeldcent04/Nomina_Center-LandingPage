@@ -8,15 +8,15 @@ export const Benefits = () => {
     <div className="benefits-container">
       <div className="benefit">
         <img src={moneyImg} />
-        <p>10+  Años trabajando para mejorar la relación con tus empleados </p>
+        <p>+10 Años trabajando junto a empresas dominicanas y sus nominas </p>
       </div>
       <div className="benefit">
         <img src={worldImg} />
-        <p>Alrededor de 50+ empleados utilizando Nómina Center   </p>
+        <p>Alrededor de 5000 empleados son actualmente manejados a traves de nuestro portal   </p>
       </div>
       <div className="benefit">
         <img src={messageImg} />
-        <p>Alrededor de 30+ empresass utilizando Nómina Center </p>
+        <p>Mas de 50 empresas utilizan NominaCenter.com para manejar sus pagos a empleados. </p>
       </div>
     </div>
   );

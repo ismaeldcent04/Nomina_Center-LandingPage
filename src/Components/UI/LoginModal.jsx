@@ -2,7 +2,7 @@ import { useContext, useRef, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-import { authenticateUser, getEmpresaByRnc } from '../../Services';
+import { authenticateUser, getEmpresaByRnc, openNewBrowser } from '../../Services';
 import { AppContext } from '../Context/AppContext';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
@@ -49,6 +49,8 @@ function LoginModal({handleClose, show, handleOpenRegister}) {
   }
 
   const handleLogin = async(e)=>{
+
+   
     console.log("Click");
     e.preventDefault();
     // const checkedUserEmail = await getUserByEmail(email);
@@ -59,12 +61,14 @@ function LoginModal({handleClose, show, handleOpenRegister}) {
     }
     const response = await authenticateUser(credentials);
     console.log(response);
+    console.log(response?.url);
     setIsloading(true);
-    if(response?.url){
+    if(response.url){
+        await openNewBrowser(response.url);
         setUrl(response.url)
         setNCUrl(response.url);
         // Swal.fire("Autenticación exitosa","Iniciando Sesión","success")
-        setIsAuthenticated(true);
+        // setIsAuthenticated(true);
         // window.location.href = response.url;
     }
     else{

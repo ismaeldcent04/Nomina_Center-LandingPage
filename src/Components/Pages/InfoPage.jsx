@@ -6,8 +6,11 @@ import { PricingSection } from "../PricingSection/PricingSection"
 import { TestimonialSection } from "../TestimonialSection/TestimonialSection"
 import "../../../index.css"
 import { LoadingModal } from "../UI/LoadingModal"
+import { useEffect } from "react"
+
 
 export const InfoPage = ()=>{
+
     return (
     <div className="animate__backInLeft">
         <main>

@@ -69,7 +69,7 @@ li {
 }
 
 .logo h1{
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: "Jost";
   font-weight: bold;
 }
@@ -178,6 +178,7 @@ li button {
 .hero-description h1 {
   font-size: 2vw;
   margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 .hero-description p {
@@ -205,7 +206,7 @@ li button {
 
 .feature .title {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 1rem;
 }
 .feature img {
@@ -242,6 +243,7 @@ li button {
 }
 .description_info-text h2{
   font-size: x-large;
+  font-weight: bold;
 }
 .description_info-text span {
   color: #2768e5;
@@ -294,11 +296,17 @@ li button {
   align-items: center;
   text-align: center;
 }
+
+.pricing_header-container h1{
+  font-size: xx-large;
+  font-weight: bold;
+  font-family: sans-serif;
+}
 .plans_title-container {
   display: flex;
   align-items: center;
   width: 30rem;
-  height: 4rem;
+  height: 6rem;
   box-shadow: 1px 2px 12px 2px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   margin-top: 3%;
@@ -434,6 +442,10 @@ li button {
   height: 100vh;
   text-align: center;
   position: relative;
+}
+
+#testimonials h1{
+  font-weight: 600;
 }
 .carrousel-testimonial {
   display: flex;

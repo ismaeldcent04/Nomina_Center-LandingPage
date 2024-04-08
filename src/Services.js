@@ -85,3 +85,11 @@ const axiosInstance = axios.create({
     console.log(error);
   }
  }
+
+ export const openNewBrowser = async(url)=>{
+  try {
+    const response = await axiosInstance.get(`/Authentication/open?url=${url}`)
+  } catch (error) {
+    console.log(error);
+  }
+ }
