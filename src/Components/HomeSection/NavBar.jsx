@@ -10,8 +10,9 @@ export default function NavBar() {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
   const handleOpenLoginModal= ()=>{
-    setShowLoginModal(true);
-    setShowRegisterModal(false);
+     window.location.href = "http://localhost:2030/Login.aspx";
+    // setShowLoginModal(true);
+    // setShowRegisterModal(false);
   }
   const handleCloseLoginModal= ()=>{
     setShowLoginModal(false);
@@ -58,13 +59,13 @@ export default function NavBar() {
             <a href="#testimonials">Testimonios</a>
           </li>
           <li>
-            <a onClick={handleOpenLoginModal} className="button"  target="_blank">
+            <a onClick={handleOpenRegisterModal} className="button"  target="_blank">
               Acceso clientes
             </a>
           </li>
         </ul>
       </nav>
-       <LoginModal show={showLoginModal} handleClose={handleCloseLoginModal} handleOpenRegister={handleOpenRegisterModal} /> 
+       {/* <LoginModal show={showLoginModal} handleClose={handleCloseLoginModal} handleOpenRegister={handleOpenRegisterModal} />  */}
        <RegisterModal show={showRegisterModal} handleClose={handleCloseRegisterModal} handleOpenLogin={handleOpenLoginModal}/>
     </div>
   );

@@ -64,11 +64,9 @@ function LoginModal({handleClose, show, handleOpenRegister}) {
     console.log(response?.url);
     setIsloading(true);
     if(response.url){
-        await openNewBrowser(response.url);
-        setUrl(response.url)
         setNCUrl(response.url);
         // Swal.fire("Autenticación exitosa","Iniciando Sesión","success")
-        // setIsAuthenticated(true);
+        setIsAuthenticated(true);
         // window.location.href = response.url;
     }
     else{

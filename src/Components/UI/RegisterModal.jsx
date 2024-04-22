@@ -126,9 +126,23 @@ function RegisterModal({handleClose, show, handleOpenLogin}) {
           setDireccion("");
           setTelefono("");
         });
-        //sendEmail(nombre, password, email);
-        Swal.fire("Usuario Agregado!",empresa.rnc,'success')
-        handleOpenLogin();
+        sendEmail(nombre, password, email);
+        // Swal.fire("Usuario Agregado!",`Se te envio la contraseña temporal al correo ${email}`,'success')
+        Swal.fire({
+          title: "Usuario Agregado!",
+          text: `Se te envio la contraseña temporal al correo ${email}`,
+          icon: 'success',
+          showCancelButton: false,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Ok"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            handleOpenLogin()
+          }
+        });
+        // setTimeout(()=> handleOpenLogin(), 20000)
+       
         // window.location.href = `http://localhost:4412/AutoLogin.aspx?UserName=${empresa.email}&Password=${empresa.password}&IsNewBusiness=true&DataBase=NC${empresa.rnc}`;
         
       } catch (error) {
