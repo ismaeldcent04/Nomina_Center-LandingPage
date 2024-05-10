@@ -364,6 +364,7 @@ li button {
   font-size: xx-large;
   font-weight: bold;
   font-family: sans-serif;
+  margin-top: 2rem;
 }
 .plans_title-container {
   display: flex;
@@ -435,12 +436,17 @@ li button {
 .pricing_card button {
   width: 159px;
   height: 46px;
+  font-size: medium;
+  font-weight: 500;
 }
 .pricing_card ul {
   padding-left: 0;
 }
 .pricing_card li {
   padding: 0.4rem;
+}
+.plan-logo{
+  width: 60px!important;
 }
 /*MobileApp Section*/
 #mobileApp {
@@ -560,12 +566,14 @@ li button {
 }
 
 .clients_Pictures-container {
+  height: auto;
   display: flex;
   justify-content: center;
   padding: 1rem;
+  margin-top: 50px;
 }
 .clients_Pictures-container img {
-  width: max(45px, 6vw);
+  width: max(85px, 15vw);
   padding: 0 1rem;
 }
 
@@ -900,6 +908,17 @@ li button {
     flex-direction: column;
     align-items: center;
   }
+  .basic-plan{
+    width: 50%;
+  }
+
+  .basic-plan h2{
+    font-size:x-large;
+  }
+  .normal-button{
+    width: 120px;
+    font-size: small !important;
+  }
   .pricing_header-container h1 {
     font-size: 1.8rem;
   }
@@ -1106,6 +1125,26 @@ li button {
   .pricing_card,
   .pricing_card.middle {
     width: 300px;
+  }
+
+  .basic-plan{
+    width: 60%;
+    
+  }
+  .basic-plan_content{
+    gap: 10px!important;
+  }
+
+  .basic-plan h2{
+    font-size:medium
+    ;
+  }
+  .normal-button{
+    width: 110px;
+    height: 35px;
+    padding: 2px;
+   
+    font-size: small !important;
   }
   #pricing {
     height: fit-content;
@@ -1353,7 +1392,7 @@ li button {
   .pricing_card,
   .pricing_card.middle {
     width: 250px;
-    height: 350px;
+    height: 420px;
   }
   .pricing_header-container h1 {
     font-size: 0.8rem;
@@ -1373,6 +1412,25 @@ li button {
   }
   .pricing_card div {
     margin-top: 0.5rem;
+  }
+  .basic-plan{
+    width: 70%;
+    
+  }
+  .basic-plan_content{
+    gap: 10px!important;
+  }
+
+  .basic-plan h2{
+    font-size:medium
+    ;
+  }
+  .normal-button{
+    width: 110px;
+    height: 35px;
+    padding: 2px;
+   
+    font-size: small !important;
   }
   .plans_title-container {
     width: 85vw;
@@ -1458,8 +1516,10 @@ li button {
   .testimonials_picture-container img.active {
     height: 3rem;
   }
-
+  
   .clients_Pictures-container img {
+    
+    width: max(40px, 15vw);
     padding: 0rem;
   }
 

@@ -1,6 +1,9 @@
 import React from "react";
 import checkImg from "../../assets/Checkmark.png";
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+import basicImg from '../../assets/easy-to-use.png'
+import microImg from '../../assets/employees.png'
+import macroImg from '../../assets/new-employee.png'
 
 export const PricingCards = () => {
   return (
@@ -8,10 +11,13 @@ export const PricingCards = () => {
       <div className="pricing_card left">
         <div>
           <p>10 Empleados</p>
+          
           <h4>Plan Básico</h4>
+          <img src={basicImg} className="plan-logo"/>
           <h4>
             <span>USD$60</span>
           </h4>
+          
         </div>
         <ul>
           <li>
@@ -33,12 +39,13 @@ export const PricingCards = () => {
             Auditoria
           </li>
         </ul>
-        <button className="button">FREE TRIAL</button>
+        <button className="button">Solicitar</button>
       </div>
       <div className="pricing_card middle">
         <div>
           <p>20 Empleados</p>
           <h4>Mediana</h4>
+          <img className="plan-logo" src={microImg}/>
           <h4>
             <span>USD$80</span>
           </h4>
@@ -61,12 +68,13 @@ export const PricingCards = () => {
             Auditoria
           </li>
         </ul>
-        <button className="button">FREE TRIAL</button>
+        <button className="button">Solicitar</button>
       </div>
       <div className="pricing_card right">
         <div>
           <p>50 Empleados</p>
           <h4>Macro</h4>
+          <img className="plan-logo" src={macroImg}/>
           <h4>
             <span>USD$90</span>
           </h4>
@@ -89,7 +97,7 @@ export const PricingCards = () => {
             Auditoria
           </li>
         </ul>
-        <button className="button">FREE TRIAL</button>
+        <button className="button">Solicitar</button>
       </div>
     </div>
   );
