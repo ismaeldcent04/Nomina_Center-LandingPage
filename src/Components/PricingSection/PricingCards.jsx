@@ -8,85 +8,85 @@ export const PricingCards = () => {
       <div className="pricing_card left">
         <div>
           <p>10 Empleados</p>
-          <h4>Micro</h4>
+          <h4>Plan Básico</h4>
           <h4>
-            <span>Gratis</span>
+            <span>USD$60</span>
           </h4>
         </div>
         <ul>
           <li>
-            <CancelOutlinedIcon style={{color:"red", width:"25px"}}/>
-            Access on all devices
-          </li>
-          <li>
-            {" "}
-            <CancelOutlinedIcon style={{color:"red", width:"25px"}}/>
-            Access on all devices
-          </li>
-          <li>
-            {" "}
+            {/* <CancelOutlinedIcon style={{color:"red", width:"25px"}}/> */}
             <img src={checkImg} />
-            Access on all devices
+            2 Usuarios
           </li>
           <li>
             <img src={checkImg} />
-            Access on all devices
+            1 tipo de pago
+            {/* <CancelOutlinedIcon style={{color:"red", width:"25px"}}/> */}
+          </li>
+          <li>
+            <img src={checkImg} />
+            1 Nomina
+          </li>
+          <li>
+            <CancelOutlinedIcon style={{color:"red", width:"25px"}}/>
+            Auditoria
           </li>
         </ul>
         <button className="button">FREE TRIAL</button>
       </div>
       <div className="pricing_card middle">
         <div>
-          <p>+ 20 Empleados</p>
+          <p>20 Empleados</p>
           <h4>Mediana</h4>
           <h4>
-            <span>$25/Mensual</span>
+            <span>USD$80</span>
           </h4>
         </div>
         <ul>
           <li>
-          <CancelOutlinedIcon style={{color:"red", width:"25px"}}/>
-            Access on all devices
+           <img src={checkImg} />
+            Múltiples Pagos
           </li>
           <li>
             <img src={checkImg} />
-            Access on all devices
+            2 Nominas
           </li>
           <li>
             <img src={checkImg} />
-            Access on all devices
+            4 Usuarios
           </li>
           <li>
-            <img src={checkImg} />
-            Access on all devices
+            <CancelOutlinedIcon style={{color:"red", width:"25px"}}/>
+            Auditoria
           </li>
         </ul>
         <button className="button">FREE TRIAL</button>
       </div>
       <div className="pricing_card right">
         <div>
-          <p>+50 Empleados</p>
+          <p>50 Empleados</p>
           <h4>Macro</h4>
           <h4>
-            <span>$45/Mensuales</span>
+            <span>USD$90</span>
           </h4>
         </div>
         <ul>
           <li>
             <img src={checkImg} />
-            Access on all devices
+            Múltiples Pagos
           </li>
           <li>
             <img src={checkImg} />
-            Access on all devices
+            Múltiples Nominas
           </li>
           <li>
             <img src={checkImg} />
-            Access on all devices
+            5 Usuarios
           </li>
           <li>
             <img src={checkImg} />
-            Access on all devices
+            Auditoria
           </li>
         </ul>
         <button className="button">FREE TRIAL</button>

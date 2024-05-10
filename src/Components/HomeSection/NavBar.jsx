@@ -18,10 +18,7 @@ export default function NavBar() {
     setShowLoginModal(false);
   }
 
-  const handleOpenRegisterModal=()=>{
-    setShowRegisterModal(true);
-    setShowLoginModal(false);
-  }
+  
 
   const handleCloseRegisterModal =()=>{
     setShowRegisterModal(false);
@@ -50,7 +47,7 @@ export default function NavBar() {
             <a href="#home">Home</a>
           </li>
           <li>
-            <a href="#description">Beneficios</a>
+            <a href="#beneficios">Beneficios</a>
           </li>
           <li>
             <a href="#pricing">Precios</a>
@@ -58,15 +55,15 @@ export default function NavBar() {
           <li>
             <a href="#testimonials">Testimonios</a>
           </li>
-          <li>
-            <a onClick={handleOpenRegisterModal} className="button"  target="_blank">
+          <li onClick={handleOpenLoginModal} >
+          <button className="button" >
               Acceso clientes
-            </a>
+          </button>
           </li>
         </ul>
       </nav>
        {/* <LoginModal show={showLoginModal} handleClose={handleCloseLoginModal} handleOpenRegister={handleOpenRegisterModal} />  */}
-       <RegisterModal show={showRegisterModal} handleClose={handleCloseRegisterModal} handleOpenLogin={handleOpenLoginModal}/>
+       {/* <RegisterModal show={showRegisterModal} handleClose={handleCloseRegisterModal} handleOpenLogin={handleOpenLoginModal}/> */}
     </div>
   );
 }
