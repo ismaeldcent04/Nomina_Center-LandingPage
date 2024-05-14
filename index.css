@@ -534,6 +534,12 @@ li button {
   font-weight: 600;
 }
 
+#testimonials hr{
+  width: 100%;
+  height: 1px;
+  color: white;
+}
+
 .clients-description{
   margin-top: 2%;
   font-size: larger;
@@ -696,6 +702,9 @@ li button {
   }
   #notification-icon {
     width: 35px;
+  }
+  #footer{
+    margin-top:16.3%;
   }
 }
 
