@@ -368,12 +368,18 @@ li button {
 }
 .plans_title-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   width: 30rem;
-  height: 6rem;
+  height: fit-content;
   box-shadow: 1px 2px 12px 2px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   margin-top: 3%;
+}
+
+.plans_title-container hr{
+  width: 100%;
+  height: 1px;
 }
 
 .plans_title-container h2 {
@@ -383,11 +389,22 @@ li button {
   color: #2768e5;
   width: 80%;
   height: 50%;
-  margin: 0 auto;
+
+  margin:  auto;
+  margin-top: 20px;
   background-color: rgba(39, 104, 229, 0.21);
   border-radius: 8px;
   padding: 1.5%;
   text-align: center;
+}
+
+.free-plan{
+  display: flex;
+  gap:1rem;
+  justify-content: center;
+}
+.free-plan p{
+  font-size: large;
 }
 
 .pricing_cards-container {
@@ -516,6 +533,13 @@ li button {
 #testimonials h1{
   font-weight: 600;
 }
+
+.clients-description{
+  margin-top: 2%;
+  font-size: larger;
+}
+
+
 .carrousel-testimonial {
   display: flex;
   justify-content: center;
@@ -573,7 +597,8 @@ li button {
   margin-top: 50px;
 }
 .clients_Pictures-container img {
-  width: max(85px, 15vw);
+  width: max(85px, 17vw); 
+  object-fit: contain;
   padding: 0 1rem;
 }
 
@@ -614,7 +639,7 @@ li button {
 #footer {
   overflow-x: hidden;
   width: 100vw;
-  margin-top: 20%;
+  margin-top:10%;
 }
 
 .sections-container {
@@ -746,6 +771,9 @@ li button {
 
   .actionCall-container button {
     font-size: 0.8rem;
+  }
+  .clients-description{
+    font-size: large;
   }
 }
 
@@ -945,7 +973,10 @@ li button {
     width: 30px;
   }
   #testimonials {
-    width: fit-content;
+    width: 100%;
+  }
+  .clients-description{
+    font-size: medium;
   }
   .arrow {
     width: 85px;
@@ -976,6 +1007,8 @@ li button {
     height: 2.3rem;
     font-size: 0.6rem;
   }
+ 
+
   .sections-container {
     grid-template-columns: 1fr 1fr;
   }
@@ -988,6 +1021,10 @@ li button {
   }
   .nav .menu {
     display: flex;
+  }
+
+  .clients-description{
+    font-size: medium;
   }
 
   .nav {
@@ -1176,9 +1213,9 @@ li button {
   #notification-icon {
     width: 30px;
   }
-  #testimonials {
-    width: fit-content;
-  }
+  /* #testimonials {
+    width: 100;
+  } */
   #testimonials h1 {
     font-size: 1.5rem;
   }
@@ -1489,6 +1526,9 @@ li button {
   }
   #testimonials h1 {
     font-size: 1.2rem;
+  }
+  .clients-description{
+    font-size: small;
   }
 
   .carrousel-testimonial {

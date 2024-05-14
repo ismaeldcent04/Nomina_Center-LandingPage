@@ -8,7 +8,7 @@ export const Benefits = () => {
     <div className="benefits-container">
       <div className="benefit">
         <img src={moneyImg} />
-        <p>+10 Años trabajando junto a empresas dominicanas y sus nominas </p>
+        <p>+25 Años trabajando junto a empresas dominicanas y sus nominas </p>
       </div>
       <div className="benefit">
         <img src={worldImg} />

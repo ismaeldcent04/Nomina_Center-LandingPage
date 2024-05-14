@@ -1,9 +1,9 @@
 import React from "react";
-import cciLogo from "../../assets/CCI.png";
-import papaterraLogo from "../../assets/HermanosPapaterra.png";
-import hidalgosLogo from "../../assets/Hidalgos.png";
-import cruzrojaLogo from "../../assets/Cruz-Roja.png";
-import elnuevodiarioLogo from "../../assets/ElnuevoDiario.png";
+import cciLogo from "../../assets/teriyaky.png";
+import papaterraLogo from "../../assets/Hermanos Papaterra.jpg";
+import hidalgosLogo from "../../assets/Los Hidalgos Farmacia.png";
+import cruzrojaLogo from "../../assets/Cruz Roja logo peque.png";
+import elnuevodiarioLogo from "../../assets/Nuevo Diario.png";
 
 export const ClientsPictures = () => {
   return (

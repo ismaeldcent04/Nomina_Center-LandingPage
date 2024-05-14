@@ -1,7 +1,7 @@
 import React from "react";
 import checkImg from "../../assets/Checkmark.png";
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
-import basicImg from '../../assets/easy-to-use.png'
+import basicImg from '../../assets/perfil.png'
 import microImg from '../../assets/employees.png'
 import macroImg from '../../assets/new-employee.png'
 

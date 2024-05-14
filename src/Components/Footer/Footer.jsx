@@ -5,10 +5,10 @@ export const Footer = () => {
     <footer id="footer">
       <div className="sections-container">
         <div>
-          <h4>Home</h4>
-          <p>Beneficios</p>
-          <p>Testimonios</p>
-          <p>Logros</p>
+          <h4><a href="#home" style={{"color":"black"}}>Home</a></h4>
+          <p><a href="#beneficios">Beneficios</a></p>
+          <p><a href="#testimonials">Clientes</a></p>
+          <p><a href="#description">Logros</a></p>
           <p>Privacidad</p>
           <p>Empresa</p>
         </div>
@@ -21,11 +21,11 @@ export const Footer = () => {
         </div>
         <div>
           <h4>Siguenos</h4>
-          <p>
+          {/* <p>
             <a href="https://www.instagram.com/nominacenter" target="_blank">
               Instagram
             </a>
-          </p>
+          </p> */}
           <p>
             <a
               href="https://www.linkedin.com/in/nomina-center-063a892a7/"
@@ -43,7 +43,7 @@ export const Footer = () => {
       <div className="copyright-section">
         <div className="logo-copyright">
           <img className="nominalogo" src={nominaLogo} />
-          <p>copyright@NominaCenter 2023</p>
+          <p>copyright@NominaCenter 2024</p>
         </div>
         <p>Made by SGS Team</p>
       </div>

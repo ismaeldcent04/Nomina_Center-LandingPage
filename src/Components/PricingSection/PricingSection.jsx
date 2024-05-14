@@ -21,13 +21,13 @@ export const PricingSection = () => {
   return (
     <div id="pricing">
       {/* PricingHeader */}
-      <PricingHeader />
-      <div className="basic-plan">
+      <PricingHeader handleOpenRegisterModal={handleOpenRegisterModal} />
+      {/* <div className="basic-plan">
         <div className="basic-plan_content">
           <h2>Hasta 5 empleados Gratis</h2>
           <button onClick={handleOpenRegisterModal} className="normal-button">Registrate Gratis</button>
         </div>
-      </div>
+      </div> */}
       {/* PricingCards */}
       <PricingCards />
       {/* <div className="advanced-plan">
