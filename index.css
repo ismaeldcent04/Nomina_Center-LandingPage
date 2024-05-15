@@ -144,8 +144,8 @@ li button {
   color: white;
   border: none;
   border-radius: 6px;
-  height: 4vh;
-  width: 9.5vw;
+  height: 5vh;
+  width: 9.7vw;
 
 }
 
@@ -402,8 +402,11 @@ li button {
   display: flex;
   gap:1rem;
   justify-content: center;
+ 
+  margin-bottom: 10px;
 }
 .free-plan p{
+  padding: 5px;
   font-size: large;
 }
 
@@ -678,7 +681,7 @@ li button {
 
 /* Responsiveness */
 
-@media only screen and (min-width: 1201px) and (max-width: 1613px) {
+@media only screen and (min-width: 1401px) and (max-width: 1613px) {
   .nav a,
   .hero-container a {
     font-size: 0.8rem;
@@ -705,6 +708,42 @@ li button {
   }
   #footer{
     margin-top:16.3%;
+  }
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1400px){
+  .nav a,
+  .hero-container a {
+    font-size: 0.8rem;
+  }
+
+  .background-container {
+    height: 50vh;
+  }
+  #mobileSection-logo {
+    width: 9rem;
+  }
+
+  .mobileSection-content h1 {
+    font-size: 8rem;
+  }
+  .notification-button {
+    gap: 0.5rem;
+    width: 25rem;
+    height: 4rem;
+    font-size: x-large;
+  }
+  #notification-icon {
+    width: 35px;
+  }
+  .actionCall_content-container {
+    top: 40%;
+  }
+  .actionCall-container h1 {
+    font-size: 1.8rem;
+  }
+  #footer{
+    margin-top:20%;
   }
 }
 
@@ -952,6 +991,12 @@ li button {
   .basic-plan h2{
     font-size:x-large;
   }
+
+  .free-plan .button{
+    width: 12vw;
+    height: 6vh;
+    font-size: 0.7rem;
+  }
   .normal-button{
     width: 120px;
     font-size: small !important;
@@ -1184,6 +1229,12 @@ li button {
   .basic-plan h2{
     font-size:medium
     ;
+  }
+
+  .free-plan .button{
+    width: 17vw;
+    height: 6vh;
+    font-size: 0.7rem;
   }
   .normal-button{
     width: 110px;
@@ -1480,8 +1531,17 @@ li button {
   }
   .plans_title-container {
     width: 85vw;
-    height: 5vh;
+    height: 30vh;
     font-size: 0.6rem;
+  }
+  .free-plan .button{
+    width: 24vw;
+    height: 6.5vh;
+    font-size: 0.7rem;
+  }
+
+  .free-plan p{
+    font-size: medium;
   }
   #mobileApp {
     position: relative;

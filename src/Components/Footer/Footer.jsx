@@ -28,7 +28,7 @@ export const Footer = () => {
           </p> */}
           <p>
             <a
-              href="https://www.linkedin.com/in/nomina-center-063a892a7/"
+              href="https://www.linkedin.com/company/99223815/admin/feed/posts/"
               target="_blank"
             >
               Linkedin
