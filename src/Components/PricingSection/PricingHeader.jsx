@@ -7,11 +7,11 @@ export const PricingHeader = ({handleOpenRegisterModal}) => {
     <div className="pricing_header-container">
        <div className="plans_title-container">
         <h2>Planes</h2>
-        <hr/>
-        <div className="free-plan">
+       
+        {/* <div className="free-plan">
         <p>Hasta 5 empleados Gratis</p>
         <button onClick={handleOpenRegisterModal} className="button">Registrate Gratis</button>
-        </div>
+        </div> */}
       </div>
       <h1>Escoge un plan que mejor se acomode a tus necesidades</h1>
       

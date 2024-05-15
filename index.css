@@ -377,10 +377,7 @@ li button {
   margin-top: 3%;
 }
 
-.plans_title-container hr{
-  width: 100%;
-  height: 1px;
-}
+
 
 .plans_title-container h2 {
   display: flex;
@@ -390,8 +387,8 @@ li button {
   width: 80%;
   height: 50%;
 
-  margin:  auto;
-  margin-top: 20px;
+  margin: 20px auto;
+  
   background-color: rgba(39, 104, 229, 0.21);
   border-radius: 8px;
   padding: 1.5%;
@@ -402,7 +399,6 @@ li button {
   display: flex;
   gap:1rem;
   justify-content: center;
- 
   margin-bottom: 10px;
 }
 .free-plan p{
@@ -412,6 +408,7 @@ li button {
 
 .pricing_cards-container {
   display: flex;
+  flex-wrap: wrap;
   position: relative;
   justify-content: center;
   margin-top: 2%;
@@ -467,6 +464,30 @@ li button {
 }
 .plan-logo{
   width: 60px!important;
+}
+
+.plans-description_container{
+  width: 100vw;
+  height: fit-content;
+  margin-top: 5%;
+}
+.plans-description_header{
+  text-align: center;
+}
+
+.plans-description_header h1{
+  font-weight: 600;
+}
+
+.plans-description_header p{
+  font-size: large;
+}
+.plans-description_content{
+  margin: 5% auto 10% auto;
+  width: 85%;
+}
+.plans-description_content span{
+  font-size: larger;
 }
 /*MobileApp Section*/
 #mobileApp {
@@ -1004,6 +1025,10 @@ li button {
   .pricing_header-container h1 {
     font-size: 1.8rem;
   }
+  
+  .plans-description_header p{
+    font-size: medium;
+  }
   #pricing {
     height: fit-content;
   }
@@ -1256,6 +1281,12 @@ li button {
   .plans_title-container {
     width: 380px;
     font-size: 0.8rem;
+  }
+  .plans-description_header h1{
+    font-size: x-large;
+  }
+  .plans-description_header p{
+    font-size: medium;
   }
   #mobileSection-logo {
     width: 6rem;
@@ -1542,6 +1573,12 @@ li button {
 
   .free-plan p{
     font-size: medium;
+  }
+  .plans-description_header h1{
+    font-size: large;
+  }
+  .plans-description_header p{
+    font-size: small;
   }
   #mobileApp {
     position: relative;
