@@ -1,4 +1,4 @@
-import React from "react";
+
 import checkImg from "../../assets/Checkmark.png";
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import freeImg from '../../assets/gratis.png'
@@ -7,7 +7,13 @@ import microImg from '../../assets/employees.png'
 import macroImg from '../../assets/new-employee.png'
 import enterpriseImg from '../../assets/enterprise.png'
 
-export const PricingCards = () => {
+
+export const PricingCards = ({showRegisterModal}) => {
+ 
+  const handleSetPlan = (newplan)=>{
+    showRegisterModal(newplan)
+  }
+
   return (
     <div className="pricing_cards-container">
       <div className="pricing_card left">
@@ -41,7 +47,7 @@ export const PricingCards = () => {
             Auditoria
           </li>
         </ul>
-        <button className="button">Solicitar</button>
+        <button className="button" onClick={()=> handleSetPlan("Plan Gratis")}>Solicitar</button>
       </div>
       
       <div className="pricing_card left">
@@ -75,7 +81,7 @@ export const PricingCards = () => {
             Auditoria
           </li>
         </ul>
-        <button className="button">Solicitar</button>
+        <button className="button" onClick={()=> handleSetPlan("Plan Básico")}>Solicitar</button>
       </div>
       <div className="pricing_card middle">
         <div>
@@ -104,7 +110,7 @@ export const PricingCards = () => {
             Auditoria
           </li>
         </ul>
-        <button className="button">Solicitar</button>
+        <button className="button" onClick={()=> handleSetPlan("Plan Mediana")}>Solicitar</button>
       </div>
       <div className="pricing_card right">
         <div>
@@ -133,7 +139,7 @@ export const PricingCards = () => {
             Auditoria
           </li>
         </ul>
-        <button className="button">Solicitar</button>
+        <button className="button" onClick={()=> handleSetPlan("Plan Macro")} >Solicitar</button>
       </div>
       <div className="pricing_card left">
         <div>
@@ -164,7 +170,7 @@ export const PricingCards = () => {
             Auditoria
           </li>
         </ul>
-        <button className="button">Contáctanos</button>
+        <button className="button" onClick={()=> handleSetPlan("Plan Enterprise")}>Contáctanos</button>
       </div>
     </div>
   );

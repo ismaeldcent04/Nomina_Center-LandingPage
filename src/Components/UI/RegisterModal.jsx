@@ -11,7 +11,7 @@ import { Spinner } from 'react-bootstrap';
 
 
 
-function RegisterModal({handleClose, show, handleOpenLogin}) {
+function RegisterModal({handleClose, show, handleOpenLogin, plan}) {
   const rncRef = useRef();
   const razonSRef = useRef();
   const direccionRef = useRef();
@@ -165,7 +165,7 @@ function RegisterModal({handleClose, show, handleOpenLogin}) {
     
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Register</Modal.Title>
+          <Modal.Title>Registro {plan}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form  onSubmit={handleSubmit}>

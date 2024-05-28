@@ -5,10 +5,12 @@ import RegisterModal from "../UI/RegisterModal";
 import { PlansDescription } from "./PlansDescription";
 
 export const PricingSection = () => {
-
+  const [plan, setPlan] = useState("");
   const [showRegisterModal, setShowRegisterModal] = useState(false);
 
-  const handleOpenRegisterModal=()=>{
+  const handleOpenRegisterModal=(newPlan)=>{
+    console.log(newPlan);
+    setPlan(newPlan)
     setShowRegisterModal(true);
   }
 
@@ -24,11 +26,11 @@ export const PricingSection = () => {
 
       <PricingHeader handleOpenRegisterModal={handleOpenRegisterModal} />
      
-      <PricingCards />
+      <PricingCards showRegisterModal={handleOpenRegisterModal}/>
     
       <PlansDescription/>
 
-    <RegisterModal  show={showRegisterModal} handleClose={handleCloseRegisterModal} handleOpenLogin={handleOpenLoginModal}/>
+      <RegisterModal  show={showRegisterModal} handleClose={handleCloseRegisterModal} handleOpenLogin={handleOpenLoginModal} plan={plan}/>
     </div>
   );
 };

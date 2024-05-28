@@ -20,7 +20,7 @@ export const HomeHero = () => {
   }
   return (
     <div className="hero-container">
-      <RegisterModal show={showRegisterModal} handleClose={handleCloseRegisterModal} handleOpenLogin={handleOpenLoginModal}/>
+      <RegisterModal show={showRegisterModal} handleClose={handleCloseRegisterModal} handleOpenLogin={handleOpenLoginModal} plan={"Plan Gratis"}/>
       <img src={backgroundImg} className="background-container" />
       <img src={secondbackgroundImg} className="background-container second" />
       <div className="hero-description">
