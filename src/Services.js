@@ -6,7 +6,7 @@ const axiosInstance = axios.create({
       "Content-Type": "application/json",
     },
 });
-
+console.log(axiosInstance);
  export const getTaxByRnc= async(id)=>{
     try {
       const response = await axiosInstance.get(`/TaxId/${id}`);
