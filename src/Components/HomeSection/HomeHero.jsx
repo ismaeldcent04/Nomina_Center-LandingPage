@@ -16,7 +16,7 @@ export const HomeHero = () => {
   }
 
   const handleOpenLoginModal= ()=>{
-    window.location.href = "http://66.94.104.127:2030/Login.aspx";
+    window.location.href = "https://nominacenter.com/app/Login.aspx";
   }
   return (
     <div className="hero-container">

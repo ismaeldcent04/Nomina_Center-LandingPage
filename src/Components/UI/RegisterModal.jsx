@@ -126,7 +126,7 @@ function RegisterModal({handleClose, show, handleOpenLogin, plan}) {
           setDireccion("");
           setTelefono("");
         });
-        sendEmail(nombre, password, email);
+        sendEmail(nombre, password, email, rnc);
         // Swal.fire("Usuario Agregado!",`Se te envio la contraseña temporal al correo ${email}`,'success')
         Swal.fire({
           title: "Usuario Agregado!",

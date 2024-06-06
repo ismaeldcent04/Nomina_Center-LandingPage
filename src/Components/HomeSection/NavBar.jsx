@@ -10,7 +10,7 @@ export default function NavBar() {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
   const handleOpenLoginModal= ()=>{
-     window.location.href = "http://66.94.104.127:2030/Login.aspx";
+     window.location.href = "https://nominacenter.com/app";
     // setShowLoginModal(true);
     // setShowRegisterModal(false);
   }

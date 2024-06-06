@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: "http://66.94.104.127:5443/api",
+    baseURL: "https://nominacenter.com/nominacenterapi/api",
     headers: {
       "Content-Type": "application/json",
     },
