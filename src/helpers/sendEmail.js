@@ -11,6 +11,7 @@ export const sendEmail= (nombre, password, email, rnc)=>{
         email: email,
         },"sQhZDnAo-9X3JUjqg").then((result)=>{
           console.log(result);
+          return result;
       }, (error)=>{
          console.log(error);
       })

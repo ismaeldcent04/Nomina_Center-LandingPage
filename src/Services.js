@@ -16,6 +16,16 @@ console.log(axiosInstance);
     }
  } 
 
+ export const sendEmail = async(emailinfo)=>{
+  try {
+    const response = await axiosInstance.post("/Email", emailinfo);
+    console.log(response.data)
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+ }
+
  export const getUsers = async()=>{
   try {
     const response = await axiosInstance.get("/Usuario");

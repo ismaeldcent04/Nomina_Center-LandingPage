@@ -2,9 +2,9 @@ import { useRef, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-import { addEmpresas, addUser, getEmpresas, getTaxByRnc, getUsers } from '../../Services';
+import { addEmpresas, addUser, getEmpresas, getTaxByRnc, getUsers, sendEmail } from '../../Services';
 import generatePassword from '../../helpers/generatePassword';
-import { sendEmail } from '../../helpers/sendEmail';
+//import { sendEmail } from '../../helpers/sendEmail';
 import "../Pages/RegisterPage.css"
 import Swal from 'sweetalert2';
 import { Spinner } from 'react-bootstrap';
@@ -126,7 +126,20 @@ function RegisterModal({handleClose, show, handleOpenLogin, plan}) {
           setDireccion("");
           setTelefono("");
         });
-        sendEmail(nombre, password, email, rnc);
+        //const emailResponse = sendEmail(nombre, password, email, rnc);
+       // console.log(emailResponse);
+        const body = `<div>
+          <p>Hola ${nombre},</p>
+          <p>Tienes un nuevo mensaje de nominacenter.com:</p>
+          <p>Tus credenciales para ingresar a la app son:</p>
+          <p>RNC: <b>${rnc}</b></p>
+          <p>Username: <b>${email}</b></p>
+          <p>Password: <b>${password}</b></p>
+          <p>Gracias por preferirnos,</p>
+          <p>SGS Team,</p>
+        </div>`
+
+        sendEmail({to:email, subject:"Registro en Nomina Center", body:body })
         // Swal.fire("Usuario Agregado!",`Se te envio la contraseña temporal al correo ${email}`,'success')
         Swal.fire({
           title: "Usuario Agregado!",
